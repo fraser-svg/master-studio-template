@@ -1,0 +1,298 @@
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Oswald", "Impact", "Barlow Condensed", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Small radius cards, not large rounded SaaS cards */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+  --radius-lg: 0.375rem;
+  --radius-xl: 0.5rem;
+  --radius-2xl: 0.625rem;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  /* Deep Forest Green as main brand */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  /* Warm beige / warm grey for content panels & strips */
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  /* Warm muted tones */
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  /* Bright green accent used sparingly (buttons, active pills, dots) */
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  /* Thin subtle borders */
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-forest: var(--forest);
+  --color-forest-dark: var(--forest-dark);
+  --color-forest-light: var(--forest-light);
+  --color-bright-green: var(--bright-green);
+  --color-sand: var(--sand);
+  --color-sand-light: var(--sand-light);
+
+  /* Surfaces that sit on the brand-dark side of the palette. Every dark
+     section reads through these instead of literal white. */
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-muted: var(--on-dark-muted);
+  --color-on-dark-faint: var(--on-dark-faint);
+  --color-on-dark-surface: var(--on-dark-surface);
+  --color-on-dark-border: var(--on-dark-border);
+  --color-dark-surface: var(--dark-surface);
+  --color-star: var(--star);
+
+  /* Type scale — 5 steps, 1.25+ ratio, fluid on marketing pages */
+  --text-step--1: clamp(0.8125rem, 0.79rem + 0.11vw, 0.875rem);
+  --text-step-0: clamp(0.9375rem, 0.91rem + 0.14vw, 1rem);
+  --text-step-1: clamp(1.125rem, 1.06rem + 0.31vw, 1.3125rem);
+  --text-step-2: clamp(1.5rem, 1.33rem + 0.85vw, 2rem);
+  --text-step-3: clamp(2rem, 1.61rem + 1.95vw, 3rem);
+  --text-step-4: clamp(2.75rem, 1.98rem + 3.85vw, 4.5rem);
+}
+
+:root {
+  --radius: 0.25rem;
+
+  /* Warm off-white background (#F7F6F2 tone in OKLCH) */
+  --background: oklch(0.975 0.008 85);
+  --foreground: oklch(0.2 0.02 140);
+
+  /* Clean off-white & beige card panels */
+  --card: oklch(0.99 0.005 85);
+  --card-foreground: oklch(0.2 0.02 140);
+  --popover: oklch(0.99 0.005 85);
+  --popover-foreground: oklch(0.2 0.02 140);
+
+  /* Deep Forest Green (#1B3B2B / #163626) */
+  --primary: oklch(0.28 0.06 148);
+  --primary-foreground: oklch(0.98 0.005 85);
+
+  /* Beige/sand surface for alternating editorial panels */
+  --secondary: oklch(0.935 0.015 85);
+  --secondary-foreground: oklch(0.22 0.03 148);
+
+  /* Muted warm beige */
+  --muted: oklch(0.94 0.012 85);
+  --muted-foreground: oklch(0.45 0.02 140);
+
+  /* Bright electric lime/green accent used sparingly (#36B368 / #28A745) */
+  --accent: oklch(0.68 0.19 142);
+  --accent-foreground: oklch(0.12 0.04 148);
+
+  --destructive: oklch(0.55 0.2 28);
+  --destructive-foreground: oklch(0.98 0 0);
+
+  /* Thin borders with warm subtle tint */
+  --border: oklch(0.89 0.012 85);
+  --input: oklch(0.89 0.012 85);
+  --ring: oklch(0.28 0.06 148);
+
+  /* Custom palette tokens */
+  --forest: oklch(0.28 0.06 148);
+  --forest-dark: oklch(0.2 0.05 148);
+  --forest-light: oklch(0.35 0.07 148);
+  --bright-green: oklch(0.68 0.19 142);
+  --sand: oklch(0.935 0.015 85);
+  --sand-light: oklch(0.96 0.01 85);
+
+  /* Dark-section palette. Themed, never literal white. */
+  --dark-surface: oklch(0.2 0.05 148);
+  --on-dark: oklch(0.985 0.004 85);
+  --on-dark-muted: oklch(0.985 0.004 85 / 0.82);
+  --on-dark-faint: oklch(0.985 0.004 85 / 0.6);
+  --on-dark-surface: oklch(0.985 0.004 85 / 0.08);
+  --on-dark-border: oklch(0.985 0.004 85 / 0.22);
+  --scrim: oklch(0.18 0.04 148 / 0.8);
+  --scrim-soft: oklch(0.18 0.04 148 / 0.68);
+  --star: oklch(0.79 0.16 78);
+}
+
+/* ---------------------------------------------------------------------------
+   THEMES
+   Set data-theme on <html>. Structure never changes — only these values do.
+   Swapping a theme must never require touching a component.
+--------------------------------------------------------------------------- */
+
+/* Industrial — concrete grey with a safety-orange accent. */
+:root[data-theme="industrial"] {
+  --background: oklch(0.965 0.002 250);
+  --foreground: oklch(0.21 0.008 250);
+  --card: oklch(0.99 0.001 250);
+  --card-foreground: oklch(0.21 0.008 250);
+  --popover: oklch(0.99 0.001 250);
+  --popover-foreground: oklch(0.21 0.008 250);
+
+  --primary: oklch(0.3 0.012 250);
+  --primary-foreground: oklch(0.98 0.002 250);
+  --secondary: oklch(0.925 0.004 250);
+  --secondary-foreground: oklch(0.25 0.01 250);
+  --muted: oklch(0.935 0.003 250);
+  --muted-foreground: oklch(0.44 0.008 250);
+
+  --accent: oklch(0.7 0.19 48);
+  --accent-foreground: oklch(0.16 0.03 48);
+
+  --border: oklch(0.875 0.004 250);
+  --input: oklch(0.875 0.004 250);
+  --ring: oklch(0.7 0.19 48);
+
+  --forest: oklch(0.3 0.012 250);
+  --forest-dark: oklch(0.22 0.008 250);
+  --forest-light: oklch(0.38 0.01 250);
+  --bright-green: oklch(0.7 0.19 48);
+  --sand: oklch(0.925 0.004 250);
+  --sand-light: oklch(0.955 0.002 250);
+
+  --dark-surface: oklch(0.22 0.008 250);
+  --on-dark: oklch(0.98 0.002 250);
+  --on-dark-muted: oklch(0.98 0.002 250 / 0.82);
+  --on-dark-faint: oklch(0.98 0.002 250 / 0.6);
+  --on-dark-surface: oklch(0.98 0.002 250 / 0.08);
+  --on-dark-border: oklch(0.98 0.002 250 / 0.22);
+  --scrim: oklch(0.19 0.006 250 / 0.82);
+  --scrim-soft: oklch(0.19 0.006 250 / 0.7);
+  --star: oklch(0.75 0.17 65);
+}
+
+/* Premium — near-black, warm metallic, for high-ticket refurb work. */
+:root[data-theme="premium"] {
+  --background: oklch(0.968 0.006 70);
+  --foreground: oklch(0.16 0.008 70);
+  --card: oklch(0.995 0.004 70);
+  --card-foreground: oklch(0.16 0.008 70);
+  --popover: oklch(0.995 0.004 70);
+  --popover-foreground: oklch(0.16 0.008 70);
+
+  --primary: oklch(0.18 0.01 70);
+  --primary-foreground: oklch(0.97 0.006 70);
+  --secondary: oklch(0.93 0.012 70);
+  --secondary-foreground: oklch(0.2 0.01 70);
+  --muted: oklch(0.94 0.01 70);
+  --muted-foreground: oklch(0.43 0.012 70);
+
+  --accent: oklch(0.72 0.11 76);
+  --accent-foreground: oklch(0.16 0.02 76);
+
+  --border: oklch(0.88 0.01 70);
+  --input: oklch(0.88 0.01 70);
+  --ring: oklch(0.72 0.11 76);
+
+  --forest: oklch(0.18 0.01 70);
+  --forest-dark: oklch(0.12 0.008 70);
+  --forest-light: oklch(0.26 0.012 70);
+  --bright-green: oklch(0.72 0.11 76);
+  --sand: oklch(0.93 0.012 70);
+  --sand-light: oklch(0.955 0.008 70);
+
+  --dark-surface: oklch(0.12 0.008 70);
+  --on-dark: oklch(0.97 0.006 70);
+  --on-dark-muted: oklch(0.97 0.006 70 / 0.8);
+  --on-dark-faint: oklch(0.97 0.006 70 / 0.58);
+  --on-dark-surface: oklch(0.97 0.006 70 / 0.07);
+  --on-dark-border: oklch(0.97 0.006 70 / 0.2);
+  --scrim: oklch(0.1 0.006 70 / 0.84);
+  --scrim-soft: oklch(0.1 0.006 70 / 0.7);
+  --star: oklch(0.78 0.12 80);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: var(--text-step-0);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* One visible focus treatment for everything interactive. Components must
+     not remove it; they may only recolour it via --ring. */
+  :where(a, button, input, textarea, select, summary, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Bold condensed uppercase style for major headings inspired by reference */
+  h1,
+  h2,
+  h3,
+  .font-condensed {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+  }
+
+  /* Sentence-case escape hatch for headings that shouldn't shout. */
+  .heading-plain {
+    font-family: var(--font-body);
+    text-transform: none;
+    letter-spacing: normal;
+  }
+}
+
+@layer utilities {
+  .text-step--1 {
+    font-size: var(--text-step--1);
+  }
+  .text-step-0 {
+    font-size: var(--text-step-0);
+  }
+  .text-step-1 {
+    font-size: var(--text-step-1);
+  }
+  .text-step-2 {
+    font-size: var(--text-step-2);
+    line-height: 1.1;
+  }
+  .text-step-3 {
+    font-size: var(--text-step-3);
+    line-height: 1.05;
+  }
+  .text-step-4 {
+    font-size: var(--text-step-4);
+    line-height: 0.95;
+  }
+
+  /* Space kept clear for the mobile call bar. */
+  .pb-callbar {
+    padding-bottom: calc(4.25rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
