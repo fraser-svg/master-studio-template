@@ -59,6 +59,10 @@ const siteRaw = {
   insuranceStatement: "{{ custom_values.insurance_statement }}",
   sameDay: true,
 
+  // Which of the three template styles this client's site is built in.
+  // See .impeccable.md; the value is read by resolveSiteStyle() below.
+  siteStyle: "{{ custom_values.site_style }}",
+
   regions: [
     {
       name: "{{ custom_values.main_town }} & nearby",
@@ -75,6 +79,28 @@ const siteRaw = {
 };
 
 export const site = withDemoContent(siteRaw);
+
+// --- Style ---------------------------------------------------------------
+//
+// The template ships three complete designs, not three palettes: steel (heavy
+// industrial bands), ink (quiet, serif-bodied, expensive) and board (hard
+// black-and-white with one saturated field). Every difference between them is
+// a token value in src/styles.css under :root[data-style="..."], so components
+// never branch on the style and a client repaint still works inside it.
+//
+// /studio phase 3 chooses the style for the client and records why in
+// DESIGN.md; phase 5 then repaints the brand hue within that style.
+
+export const SITE_STYLES = ["steel", "ink", "board"] as const;
+export type SiteStyle = (typeof SITE_STYLES)[number];
+
+/** Falls back to "steel" for an unset, unrecognised or unsubstituted value. */
+export function resolveSiteStyle(raw: string | undefined): SiteStyle {
+  const value = (raw ?? "").trim().toLowerCase();
+  return (SITE_STYLES as readonly string[]).includes(value) ? (value as SiteStyle) : "steel";
+}
+
+export const siteStyle: SiteStyle = resolveSiteStyle(site.siteStyle);
 
 export type Region = (typeof site.regions)[number];
 

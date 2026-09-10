@@ -35,7 +35,9 @@ function ReviewsPage() {
     <>
       <Section className="border-b border-border bg-background">
         <Eyebrow>Customer verification</Eyebrow>
-        <SectionHeading>Customer reviews</SectionHeading>
+        <SectionHeading as="h1" scale="hero">
+          Customer reviews
+        </SectionHeading>
         <p className="mt-5 max-w-2xl text-step-0 leading-relaxed text-muted-foreground">
           Independent customer feedback from homeowners, landlords, and local businesses across{" "}
           {site.serviceArea}. We link directly to our public Google Business Profile.
@@ -49,7 +51,7 @@ function ReviewsPage() {
                 <Star key={i} className="size-4 fill-star text-star" />
               ))}
             </div>
-            <p className="mt-3 font-display text-4xl font-bold uppercase leading-none text-primary">
+            <p className="mt-3 display text-4xl font-bold uppercase leading-none text-primary">
               {site.rating}
             </p>
             <p className="mt-3 text-step--1 font-bold uppercase tracking-wider text-foreground">
@@ -57,7 +59,7 @@ function ReviewsPage() {
             </p>
           </div>
           <div className="text-center sm:border-l sm:border-border">
-            <p className="font-display text-4xl font-bold uppercase leading-none text-foreground">
+            <p className="display text-4xl font-bold uppercase leading-none text-foreground">
               {site.reviewCount}+
             </p>
             <p className="mt-3 text-step--1 font-bold uppercase tracking-wider text-foreground">
@@ -66,7 +68,7 @@ function ReviewsPage() {
             <p className="mt-1 text-step--1 text-muted-foreground">Public profile</p>
           </div>
           <div className="text-center sm:border-l sm:border-border">
-            <p className="font-display text-4xl font-bold uppercase leading-none text-foreground">
+            <p className="display text-4xl font-bold uppercase leading-none text-foreground">
               {site.yearsExperience}+
             </p>
             <p className="mt-3 text-step--1 font-bold uppercase tracking-wider text-foreground">
@@ -78,7 +80,7 @@ function ReviewsPage() {
 
         {/* Reviews grid in clean beige panels */}
         <div className="mt-12">
-          <h2 className="font-display text-xl font-bold uppercase tracking-tight text-foreground">
+          <h2 className="display text-xl font-bold uppercase tracking-tight text-foreground">
             All recent feedback
           </h2>
           <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -91,7 +93,7 @@ function ReviewsPage() {
         {/* Grouped by service */}
         {Object.entries(byService).map(([service, list]) => (
           <div key={service} className="mt-12">
-            <h3 className="font-display text-lg font-bold uppercase tracking-tight text-foreground">
+            <h3 className="display text-lg font-bold uppercase tracking-tight text-foreground">
               {service} reviews
             </h3>
             <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

@@ -13,7 +13,7 @@ import { useState } from "react";
 
 import appCss from "../styles.css?url";
 import { reportVibeError } from "../lib/vibe-error-reporting";
-import { site } from "../lib/site";
+import { site, siteStyle, type SiteStyle } from "../lib/site";
 import { PhoneLink, EmailLink } from "../components/site";
 import { Toaster } from "@/components/ui/sonner";
 import { JsonLd } from "../components/sections";
@@ -22,7 +22,7 @@ import { demoText } from "../lib/demo";
 function NotFoundComponent() {
   return (
     <div className="mx-auto flex min-h-[60vh] max-w-md flex-col items-center justify-center px-4 text-center">
-      <h1 className="font-display text-7xl font-bold uppercase tracking-tight text-primary">404</h1>
+      <h1 className="display text-7xl font-bold uppercase tracking-tight text-primary">404</h1>
       <h2 className="mt-2 text-xl font-bold uppercase text-foreground">Page not found</h2>
       <p className="mt-2 text-step-0 text-muted-foreground">
         The page you're looking for doesn't exist or has moved.
@@ -46,7 +46,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
   return (
     <div className="mx-auto flex min-h-[60vh] max-w-md flex-col items-center justify-center px-4 text-center">
-      <h1 className="font-display text-2xl font-bold uppercase tracking-tight text-foreground">
+      <h1 className="display text-2xl font-bold uppercase tracking-tight text-foreground">
         This page didn't load
       </h1>
       <p className="mt-2 text-step-0 text-muted-foreground">
@@ -86,14 +86,12 @@ const navLinks = [
 function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-background">
+    <header className="header-surface rule-heavy-b sticky top-0 z-40 w-full">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6 lg:h-20">
         {/* Brand */}
         <Link to="/" className="flex items-center gap-3">
-          <span className="flex size-8 items-center justify-center rounded-sm bg-primary text-step-0 font-bold text-primary-foreground lg:size-9">
-            {site.businessName.charAt(0)}
-          </span>
-          <span className="font-display text-step-0 font-bold whitespace-nowrap uppercase tracking-tight text-foreground xl:text-step-1">
+          <span aria-hidden="true" className="size-7 bg-accent lg:size-8" />
+          <span className="display text-step-0 whitespace-nowrap xl:text-step-1">
             {site.businessName}
           </span>
         </Link>
@@ -104,8 +102,8 @@ function Header() {
             <Link
               key={l.to}
               to={l.to}
-              activeProps={{ className: "text-primary font-bold after:w-full" }}
-              className="relative whitespace-nowrap text-step--1 font-medium text-foreground/85 transition-colors hover:text-primary xl:text-step-0"
+              activeProps={{ className: "font-bold" }}
+              className="header-ink-muted relative whitespace-nowrap text-step--1 font-medium transition-opacity hover:opacity-100 xl:text-step-0"
             >
               {l.label}
             </Link>
@@ -116,39 +114,38 @@ function Header() {
         <div className="ml-auto flex items-center gap-3">
           <a
             href={site.phoneHref}
-            className="hidden min-h-12 items-center gap-2 whitespace-nowrap rounded-sm bg-accent px-5 text-step-0 font-bold uppercase tracking-wider text-accent-foreground transition-all hover:bg-accent/90 sm:inline-flex"
+            className="tabular hidden min-h-12 items-center gap-2 whitespace-nowrap bg-accent px-5 text-step--1 font-bold uppercase tracking-[0.12em] text-accent-ink transition-colors hover:bg-accent/90 sm:inline-flex"
           >
-            <Phone className="size-3.5" />
             <span>Call {site.phone}</span>
           </a>
           <button
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="-mr-2 flex size-11 items-center justify-center text-foreground lg:hidden"
+            className="-mr-2 flex size-11 items-center justify-center lg:hidden"
             onClick={() => setOpen((v) => !v)}
           >
-            {open ? <X className="size-5" /> : <Menu className="size-5 text-foreground" />}
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
           </button>
         </div>
       </div>
 
       {/* Mobile nav dropdown */}
       {open && (
-        <nav className="border-t border-border bg-background px-4 py-5 lg:hidden">
+        <nav className="header-surface rule-t px-4 py-5 lg:hidden">
           <div className="grid gap-1">
             {navLinks.map((l) => (
               <Link
                 key={l.to}
                 to={l.to}
                 onClick={() => setOpen(false)}
-                className="flex min-h-11 items-center rounded-sm px-3 text-step--1 font-bold uppercase tracking-wider text-foreground hover:bg-muted"
+                className="flex min-h-11 items-center px-3 text-step--1 font-bold uppercase tracking-[0.12em]"
               >
                 {l.label}
               </Link>
             ))}
             <a
               href={site.phoneHref}
-              className="mt-3 flex min-h-11 items-center justify-center gap-2 rounded-sm bg-accent text-step--1 font-bold uppercase tracking-wider text-accent-foreground"
+              className="tabular mt-3 flex min-h-11 items-center justify-center gap-2 bg-accent text-step--1 font-bold uppercase tracking-[0.12em] text-accent-ink"
             >
               <Phone className="size-4" />
               Call Now · {site.phone}
@@ -162,13 +159,11 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border bg-brand-dark text-primary-foreground">
-      <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16">
+    <footer className="bg-dark-surface text-on-dark">
+      <div className="band-pad mx-auto max-w-6xl px-5 sm:px-6">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-8">
           <div>
-            <p className="font-display text-xl font-bold uppercase tracking-tight text-on-dark">
-              {site.businessName}
-            </p>
+            <p className="display text-step-2 text-on-dark">{site.businessName}</p>
             <p className="mt-3 max-w-xs text-step--1 leading-relaxed text-on-dark-faint">
               {site.trade} serving {site.mainTown} and nearby areas. Honest quotes, realistic
               arrival windows, and guaranteed workmanship.
@@ -177,7 +172,7 @@ function Footer() {
               <p>
                 <a
                   href={site.phoneHref}
-                  className="inline-flex items-center gap-1.5 font-bold text-accent hover:underline"
+                  className="inline-flex items-center gap-1.5 font-bold text-mark hover:underline"
                 >
                   <Phone className="size-3.5" />
                   {site.phone}
@@ -256,7 +251,7 @@ function Footer() {
         {/* Small CTA strip in footer */}
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-y border-on-dark-border py-6 sm:flex-row sm:items-center">
           <div>
-            <p className="font-display text-step-0 font-bold uppercase tracking-tight text-on-dark">
+            <p className="display text-step-0 font-bold uppercase tracking-tight text-on-dark">
               Need a {site.tradeSingular} in {site.mainTown}?
             </p>
             <p className="mt-1.5 text-step--1 text-on-dark-faint">
@@ -301,7 +296,7 @@ function Footer() {
 function FooterCol({ title, links }: { title: string; links: { label: string; to: string }[] }) {
   return (
     <div>
-      <p className="font-display text-step--1 font-bold uppercase tracking-wider text-on-dark">
+      <p className="display text-step--1 font-bold uppercase tracking-wider text-on-dark">
         {title}
       </p>
       <ul className="mt-3 space-y-2 text-step--1">
@@ -342,6 +337,16 @@ function MobileCallBar() {
   );
 }
 
+// Google Fonts pairing per style. Only the active style's families are
+// requested, so a client site never downloads three superfamilies.
+const STYLE_FONT_HREF: Record<SiteStyle, string> = {
+  steel:
+    "https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap",
+  ink: "https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap",
+  board:
+    "https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&display=swap",
+};
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
@@ -362,10 +367,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.gstatic.com",
         crossOrigin: "anonymous",
       },
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap",
-      },
+      { rel: "stylesheet", href: STYLE_FONT_HREF[siteStyle] },
       { rel: "stylesheet", href: appCss },
     ],
   }),
@@ -377,8 +379,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    // Theme is a Custom Value: "" (Forest, default), "industrial" or "premium".
-    <html lang="en">
+    // The style is a Custom Value: "steel" (default), "ink" or "board".
+    // Every difference between them is a token under :root[data-style] in
+    // src/styles.css - see .impeccable.md.
+    <html lang="en" data-style={siteStyle}>
       <head>
         <HeadContent />
         <JsonLd

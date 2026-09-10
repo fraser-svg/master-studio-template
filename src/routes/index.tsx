@@ -3,6 +3,7 @@ import { site, services } from "@/lib/site";
 import { FinalCTA, JsonLd, BreadcrumbJsonLd } from "@/components/sections";
 import {
   HomeHero,
+  HomeHeroBleed,
   HomeTrustBar,
   HomeServices,
   HomeRecentWork,
@@ -42,14 +43,19 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <>
+      {/* The band sequence IS the design: light, alt and dark alternating,
+          with size varying so the page compresses and expands. Three dark
+          bands, not one. Changing this order changes the rhythm - do it
+          deliberately. */}
       <HomeHero />
+      <HomeHeroBleed />
       <HomeTrustBar />
       <HomeServices />
       <HomeRecentWork />
-      <HomeProofStats />
+      <HomeReviews />
       <HomeWhyChooseUs />
       <HomeAreasCovered />
-      <HomeReviews />
+      <HomeProofStats />
       <HomeFaqs />
       <HomeNapBlock />
       <FinalCTA heading={`Need a ${site.tradeSingular} in ${site.mainTown}?`} />

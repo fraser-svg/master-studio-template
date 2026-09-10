@@ -30,7 +30,9 @@ function FaqsPage() {
     <>
       <Section className="border-b border-border bg-background">
         <Eyebrow>Knowledge base</Eyebrow>
-        <SectionHeading>Frequently asked questions</SectionHeading>
+        <SectionHeading as="h1" scale="hero">
+          Frequently asked questions
+        </SectionHeading>
         <p className="mt-5 max-w-2xl text-step-0 leading-relaxed text-muted-foreground">
           Straight answers about our service, pricing structure, arrival windows, and guarantees. If
           your question isn't covered, call {site.phone} and we'll answer it directly.
@@ -41,9 +43,9 @@ function FaqsPage() {
           {faqGroups.map((g) => (
             <div
               key={g.group}
-              className="rounded-sm border border-border bg-secondary/30 p-6 sm:p-8"
+              className="rounded-sm border border-border bg-surface-alt-soft p-6 sm:p-8"
             >
-              <h2 className="font-display text-base font-bold uppercase tracking-tight text-foreground">
+              <h2 className="display text-base font-bold uppercase tracking-tight text-foreground">
                 {g.group}
               </h2>
               <div className="mt-6">

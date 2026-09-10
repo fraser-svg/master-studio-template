@@ -38,6 +38,8 @@ const VALUES: Record<string, string> = {
   licence_number: "NFRC 41182",
   insurance_statement: "£5m public liability, fully insured",
 
+  site_style: "steel",
+
   lead_endpoint: "",
   hero_image_url: "",
   hero_image_alt: "Marden & Sons roofers replacing slate on a Sheffield terrace",

@@ -30,7 +30,9 @@ function AboutPage() {
     <>
       <Section className="border-b border-border bg-background">
         <Eyebrow>About {site.businessName}</Eyebrow>
-        <SectionHeading>Practical, honest trade work in {site.mainTown}</SectionHeading>
+        <SectionHeading as="h1" scale="hero">
+          Practical, honest trade work in {site.mainTown}
+        </SectionHeading>
         <p className="mt-5 max-w-2xl text-step-0 leading-relaxed text-muted-foreground">
           We're an established {site.trade.toLowerCase()} business that has spent{" "}
           {site.yearsExperience}+ years repairing, installing, and maintaining systems across{" "}
@@ -48,7 +50,7 @@ function AboutPage() {
       </Section>
 
       {/* Qualifications & Insurance */}
-      <section className="border-b border-border bg-secondary/40">
+      <section className="border-b border-border bg-surface-alt">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <Eyebrow>Credentials</Eyebrow>
           <SectionHeading>Licences, insurance &amp; standards</SectionHeading>
@@ -70,12 +72,10 @@ function AboutPage() {
             ].map((c, i) => (
               <div key={c.t} className="rounded-sm border border-border bg-card p-6">
                 <div className="flex items-center justify-between border-b border-border pb-4">
-                  <span className="font-display text-step--1 font-bold text-primary">
-                    [0{i + 1}]
-                  </span>
-                  <Check className="size-4 text-accent" />
+                  <span className="display text-step--1 font-bold text-primary">[0{i + 1}]</span>
+                  <Check className="size-4 text-mark" />
                 </div>
-                <h3 className="mt-4 font-display text-base font-bold uppercase tracking-tight text-foreground">
+                <h3 className="mt-4 display text-base font-bold uppercase tracking-tight text-foreground">
                   {c.t}
                 </h3>
                 <p className="mt-2 text-step-0 text-muted-foreground">{c.d}</p>

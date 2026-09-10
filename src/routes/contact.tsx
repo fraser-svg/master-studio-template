@@ -72,7 +72,9 @@ function ContactPage() {
     <>
       <Section className="border-b border-border bg-background">
         <Eyebrow>Direct contact</Eyebrow>
-        <SectionHeading>Contact {site.businessName}</SectionHeading>
+        <SectionHeading as="h1" scale="hero">
+          Contact {site.businessName}
+        </SectionHeading>
         <p className="mt-5 max-w-2xl text-step-0 leading-relaxed text-muted-foreground">
           For urgent jobs or fastest assistance, call {site.phone} directly. For booked estimates,
           fill in the short quote form below and we will confirm the next step.
@@ -92,7 +94,7 @@ function ContactPage() {
                 <p className="text-step--1 font-bold uppercase tracking-wider text-muted-foreground">
                   Direct Line
                 </p>
-                <p className="mt-0.5 font-display text-base font-bold uppercase text-foreground">
+                <p className="mt-0.5 display text-base font-bold uppercase text-foreground">
                   {site.phone}
                 </p>
               </div>
@@ -145,7 +147,7 @@ function ContactPage() {
               <p className="text-step--1 font-bold uppercase tracking-widest text-primary">
                 Fast Quote
               </p>
-              <h2 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-foreground">
+              <h2 className="mt-2 display text-xl font-bold uppercase tracking-tight text-foreground">
                 Tell us about the job
               </h2>
             </div>
@@ -186,7 +188,7 @@ function ContactPage() {
               />
             </Field>
 
-            <div className="rounded-sm border border-dashed border-border bg-secondary/50 p-4 text-step-0 text-muted-foreground">
+            <div className="rounded-sm border border-dashed border-border bg-surface-alt-soft p-4 text-step-0 text-muted-foreground">
               <span className="inline-flex items-center gap-1.5 font-bold uppercase tracking-wider text-foreground">
                 <Upload className="size-4 text-primary" /> Optional photo upload
               </span>

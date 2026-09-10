@@ -34,7 +34,7 @@ function PrivacyPage() {
           </p>
 
           <div>
-            <h2 className="font-display text-base font-bold uppercase tracking-tight text-foreground">
+            <h2 className="display text-base font-bold uppercase tracking-tight text-foreground">
               Information we collect
             </h2>
             <p className="mt-3">
@@ -45,7 +45,7 @@ function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-base font-bold uppercase tracking-tight text-foreground">
+            <h2 className="display text-base font-bold uppercase tracking-tight text-foreground">
               How we use your details
             </h2>
             <p className="mt-3">
@@ -56,7 +56,7 @@ function PrivacyPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-base font-bold uppercase tracking-tight text-foreground">
+            <h2 className="display text-base font-bold uppercase tracking-tight text-foreground">
               Contacting us
             </h2>
             <p className="mt-3">

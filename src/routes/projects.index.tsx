@@ -29,7 +29,9 @@ function ProjectsHub() {
     <>
       <Section className="border-b border-border bg-background">
         <Eyebrow>Field portfolio</Eyebrow>
-        <SectionHeading>Recent work</SectionHeading>
+        <SectionHeading as="h1" scale="hero">
+          Recent work
+        </SectionHeading>
         <p className="mt-5 max-w-2xl text-step-0 leading-relaxed text-muted-foreground">
           Real jobs we've carried out across {site.serviceArea} - the problem, what we found, what
           we did, and roughly what it cost. No staged stock photography, just the actual work.
@@ -70,7 +72,7 @@ function ProjectsHub() {
                   <span className="text-step--1 font-bold uppercase tracking-wider text-muted-foreground">
                     {p.town} · {p.propertyType}
                   </span>
-                  <h2 className="mt-1.5 font-display text-base font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
+                  <h2 className="mt-1.5 display text-base font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
                     {p.jobType}
                   </h2>
                   <p className="mt-2 text-step-0 text-muted-foreground line-clamp-2">{p.result}</p>
@@ -89,7 +91,7 @@ function ProjectsHub() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 rounded-sm border border-border bg-secondary p-7 sm:flex-row sm:p-8">
           <div>
-            <p className="font-display text-base font-bold uppercase tracking-tight text-foreground">
+            <p className="display text-base font-bold uppercase tracking-tight text-foreground">
               Have a similar job needing attention?
             </p>
             <p className="mt-1.5 text-step-0 text-muted-foreground">

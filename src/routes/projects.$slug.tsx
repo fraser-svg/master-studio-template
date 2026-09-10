@@ -66,7 +66,7 @@ function ProjectPage() {
               <span className="text-step--1 font-bold uppercase tracking-wider text-primary">
                 {p.town} · {p.propertyType}
               </span>
-              <h1 className="mt-2 font-display text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              <h1 className="display mt-2 text-step-4">
                 {p.jobType}, {p.propertyType}, {p.town}
               </h1>
               <p className="mt-5 text-step-0 leading-relaxed text-muted-foreground">{p.result}</p>
@@ -107,34 +107,34 @@ function ProjectPage() {
       </section>
 
       {/* Case Study Details */}
-      <section className="border-b border-border bg-secondary/40">
+      <section className="border-b border-border bg-surface-alt">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <div className="grid gap-5 md:grid-cols-3">
             <div className="rounded-sm border border-border bg-card p-6">
-              <span className="font-display text-step--1 font-bold uppercase tracking-wider text-primary">
+              <span className="display text-step--1 font-bold uppercase tracking-wider text-primary">
                 [01] The Problem
               </span>
-              <h2 className="mt-3 font-display text-base font-bold uppercase tracking-tight text-foreground">
+              <h2 className="mt-3 display text-base font-bold uppercase tracking-tight text-foreground">
                 What went wrong
               </h2>
               <p className="mt-3 text-step-0 leading-relaxed text-muted-foreground">{p.problem}</p>
             </div>
 
             <div className="rounded-sm border border-border bg-card p-6">
-              <span className="font-display text-step--1 font-bold uppercase tracking-wider text-primary">
+              <span className="display text-step--1 font-bold uppercase tracking-wider text-primary">
                 [02] What We Found
               </span>
-              <h2 className="mt-3 font-display text-base font-bold uppercase tracking-tight text-foreground">
+              <h2 className="mt-3 display text-base font-bold uppercase tracking-tight text-foreground">
                 On-site inspection
               </h2>
               <p className="mt-3 text-step-0 leading-relaxed text-muted-foreground">{p.found}</p>
             </div>
 
             <div className="rounded-sm border border-border bg-card p-6">
-              <span className="font-display text-step--1 font-bold uppercase tracking-wider text-primary">
+              <span className="display text-step--1 font-bold uppercase tracking-wider text-primary">
                 [03] What We Did
               </span>
-              <h2 className="mt-3 font-display text-base font-bold uppercase tracking-tight text-foreground">
+              <h2 className="mt-3 display text-base font-bold uppercase tracking-tight text-foreground">
                 The resolution
               </h2>
               <p className="mt-3 text-step-0 leading-relaxed text-muted-foreground">{p.did}</p>

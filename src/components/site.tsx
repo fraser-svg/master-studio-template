@@ -26,7 +26,7 @@ export function CallButton({
     <a
       href={site.phoneHref}
       className={cn(
-        "inline-flex min-h-11 items-center justify-center gap-1.5 rounded-sm bg-accent px-5 text-step--1 font-bold uppercase tracking-wider text-accent-foreground transition-all hover:bg-accent/90 active:scale-[0.98] motion-reduce:active:scale-100",
+        "inline-flex min-h-12 items-center justify-center gap-2 bg-accent px-6 text-step--1 font-bold uppercase tracking-[0.12em] text-accent-ink transition-colors hover:bg-accent/90",
         className,
       )}
     >
@@ -47,7 +47,7 @@ export function QuoteButton({
     <Link
       to="/contact"
       className={cn(
-        "inline-flex min-h-11 items-center justify-center gap-1.5 rounded-sm border border-border bg-card px-5 text-step--1 font-bold uppercase tracking-wider text-foreground transition-all hover:bg-secondary hover:text-primary active:scale-[0.98] motion-reduce:active:scale-100",
+        "rule-heavy-t rule-heavy-b inline-flex min-h-12 items-center justify-center gap-2 border-x-0 bg-transparent px-6 text-step--1 font-bold uppercase tracking-[0.12em] text-foreground transition-colors hover:bg-surface-alt",
         className,
       )}
     >
@@ -85,12 +85,103 @@ export function TrustPill({
   return (
     <span
       className={cn(
-        "inline-flex items-center gap-1.5 rounded-sm border border-border bg-card px-2.5 py-1 text-step--1 font-medium text-foreground/80",
+        "rule-t rule-b inline-flex items-center gap-1.5 bg-card px-2.5 py-1 text-step--1 font-medium text-foreground/80",
         className,
       )}
     >
       {children}
     </span>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Band: the page's structural unit.
+//
+// A band is a full-bleed solid surface with a contained inner column. The
+// homepage is a SEQUENCE of bands, and the sequence is the design: light,
+// alt and dark alternating, with the vertical size varying so the page
+// compresses and expands instead of repeating one padding nine times.
+//
+// `tone` never takes an opacity. The old code used bg-secondary/40 against
+// bg-background - 0.955 vs 0.915 lightness, a difference you cannot see -
+// which is why the whole page read as one flat field.
+// ---------------------------------------------------------------------------
+
+export type BandTone = "light" | "alt" | "deep" | "dark";
+export type BandSize = "tight" | "normal" | "tall";
+
+const BAND_TONE: Record<BandTone, string> = {
+  light: "bg-background text-foreground",
+  alt: "bg-surface-alt text-foreground",
+  deep: "bg-surface-deep text-foreground",
+  dark: "bg-dark-surface text-on-dark",
+};
+
+const BAND_SIZE: Record<BandSize, string> = {
+  tight: "band-pad-tight",
+  normal: "band-pad",
+  tall: "band-pad-tall",
+};
+
+export function Band({
+  children,
+  tone = "light",
+  size = "normal",
+  className,
+  innerClassName,
+  id,
+  as: As = "section",
+  full = false,
+}: {
+  children: React.ReactNode;
+  tone?: BandTone;
+  size?: BandSize;
+  className?: string;
+  innerClassName?: string;
+  id?: string;
+  as?: "section" | "div";
+  /** Edge-to-edge content with no inner column - for full-bleed imagery. */
+  full?: boolean;
+}) {
+  return (
+    <As id={id} className={cn(BAND_TONE[tone], full ? "" : BAND_SIZE[size], className)}>
+      {full ? (
+        children
+      ) : (
+        <div className={cn("mx-auto w-full max-w-6xl px-5 sm:px-6", innerClassName)}>
+          {children}
+        </div>
+      )}
+    </As>
+  );
+}
+
+// Section furniture: a rule that runs across the column with the heading
+// sitting on it, and an optional link at the far end. This is what gives the
+// page its ledger feel, and it is one component so the rhythm cannot drift
+// section to section.
+export function BandHead({
+  children,
+  aside,
+  onDark = false,
+  className,
+}: {
+  children: React.ReactNode;
+  aside?: React.ReactNode;
+  onDark?: boolean;
+  className?: string;
+}) {
+  return (
+    <div
+      className={cn(
+        onDark ? "rule-t-on-dark" : "rule-t",
+        "flex flex-col justify-between gap-3 pt-4 sm:flex-row sm:items-baseline sm:gap-8",
+        className,
+      )}
+    >
+      {children}
+      {aside}
+    </div>
   );
 }
 
@@ -106,10 +197,7 @@ export function Section({
   id?: string;
 }) {
   return (
-    <section
-      id={id}
-      className={cn("mx-auto w-full max-w-6xl px-5 py-14 sm:px-6 sm:py-20", className)}
-    >
+    <section id={id} className={cn("band-pad mx-auto w-full max-w-6xl px-5 sm:px-6", className)}>
       {children}
     </section>
   );
@@ -125,7 +213,7 @@ export function Eyebrow({
 }) {
   return (
     <div className={cn("mb-3 flex items-center gap-3", className)}>
-      <span aria-hidden="true" className="h-px w-6 bg-accent" />
+      <span aria-hidden="true" className="h-[var(--rule-weight-heavy)] w-8 bg-accent" />
       <p className="text-step--1 font-bold uppercase tracking-widest text-muted-foreground">
         {children}
       </p>
@@ -138,61 +226,64 @@ export function SectionHeading({
   children,
   className,
   as: As = "h2",
+  scale = "section",
 }: {
   children: React.ReactNode;
   className?: string;
-  as?: "h2" | "h3";
+  as?: "h1" | "h2" | "h3";
+  /**
+   * "section" is every heading on the page. "hero" is the single loudest
+   * moment, and there must be exactly ONE per page - see .impeccable.md.
+   */
+  scale?: "section" | "hero";
 }) {
   return (
-    <As
-      className={cn(
-        "font-display text-step-3 font-bold uppercase tracking-tight text-foreground",
-        className,
-      )}
-    >
+    <As className={cn("display", scale === "hero" ? "text-step-4" : "text-step-3", className)}>
       {children}
     </As>
   );
 }
 
 // Small horizontal row of trust markers (from reference "logoipsum" / proof strip)
-export function TrustStrip({ className }: { className?: string }) {
+export function TrustStrip({
+  className,
+  onDark = false,
+}: {
+  className?: string;
+  onDark?: boolean;
+}) {
+  // Four facts, set as type on a divided rail. Deliberately no icons: a row of
+  // 14px lucide glyphs separated by middle dots is a generated-page signature,
+  // and none of them carry information the words do not.
+  const facts = [
+    { lead: site.rating, rest: `Google rating, ${site.reviewCount}+ reviews` },
+    { lead: site.yearsExperience, rest: "years trading" },
+    { lead: site.accreditation, rest: `Licence ${site.licenceNumber}` },
+    { lead: "Insured", rest: "Certificate on request" },
+  ];
+
   return (
-    <div
+    <dl
       className={cn(
-        "flex flex-wrap items-center gap-x-6 gap-y-2 text-step--1 font-medium text-foreground/80",
+        "grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4",
+        onDark ? "text-on-dark" : "text-foreground",
         className,
       )}
     >
-      <span className="inline-flex items-center gap-1.5 font-bold text-foreground">
-        <Star className="size-3.5 fill-star text-star" />
-        {site.rating} Google rating ({site.reviewCount}+ reviews)
-      </span>
-      <span className="text-border">·</span>
-      <span className="inline-flex items-center gap-1">
-        <Clock className="size-3.5 text-primary" />
-        {site.yearsExperience}+ years trading
-      </span>
-      <span className="text-border">·</span>
-      <span className="inline-flex items-center gap-1">
-        <ShieldCheck className="size-3.5 text-primary" />
-        Fully insured
-      </span>
-      <span className="text-border">·</span>
-      <span className="inline-flex items-center gap-1">
-        <CheckCircle2 className="size-3.5 text-primary" />
-        {site.accreditation}
-      </span>
-      {site.sameDay && (
-        <>
-          <span className="text-border">·</span>
-          <span className="inline-flex items-center gap-1.5 font-semibold text-primary">
-            <Clock className="size-3.5 text-primary" />
-            Same-day availability
-          </span>
-        </>
-      )}
-    </div>
+      {facts.map((f) => (
+        <div key={f.rest} className="flex items-baseline gap-2">
+          <dt className="tabular text-step--1 font-bold uppercase tracking-[0.08em]">{f.lead}</dt>
+          <dd
+            className={cn(
+              "text-step--1 uppercase tracking-[0.08em]",
+              onDark ? "text-on-dark-muted" : "text-muted-foreground",
+            )}
+          >
+            {f.rest}
+          </dd>
+        </div>
+      ))}
+    </dl>
   );
 }
 

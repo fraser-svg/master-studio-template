@@ -1,6 +1,6 @@
 import { site } from "@/lib/site";
 import { demoPhoto } from "@/lib/demo";
-import { Star, MapPin, Check, Phone, Image as ImageIcon } from "lucide-react";
+import { Star, Check, Phone } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import {
   CTAPair,
@@ -21,29 +21,30 @@ export function MapPlaceholder({
   label?: string;
   height?: string;
 }) {
+  // Deliberately not a dotted radial grid with a pin in the middle. That read
+  // as a broken embed, and it shipped twice on the homepage. Until a real
+  // Google Map embed is dropped in (replace this whole component's body with
+  // the iframe), a solid brand block carrying the address in type is honest
+  // and looks intentional.
   return (
     <div
       role="img"
       aria-label={label}
-      className={`relative ${height} w-full overflow-hidden rounded-sm border border-border bg-secondary`}
+      className={`relative ${height} w-full overflow-hidden bg-dark-surface text-on-dark`}
     >
-      <div className="absolute inset-0 grid place-items-center bg-muted [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:16px_16px]">
-        <div className="p-4 text-center">
-          <div className="mx-auto mb-2 flex size-9 items-center justify-center rounded-sm bg-primary text-primary-foreground">
-            <MapPin className="size-4" />
-          </div>
-          <p className="font-display text-step-0 font-bold uppercase tracking-tight text-foreground">
-            {site.mainTown} &amp; Surrounding Areas
+      <div className="flex size-full flex-col justify-end p-7 sm:p-9">
+        <p className="text-step--1 font-bold uppercase tracking-[0.2em] text-mark">Service area</p>
+        <p className="display mt-3 text-step-2 text-on-dark">
+          {site.mainTown} &amp; {site.serviceArea}
+        </p>
+        <p className="rule-t-on-dark mt-5 pt-4 text-step--1 leading-relaxed text-on-dark-muted">
+          Based at {site.address}
+        </p>
+        {import.meta.env.DEV && (
+          <p className="mt-3 text-step--1 uppercase tracking-[0.14em] text-on-dark-faint">
+            Replace with a real Google Map embed
           </p>
-          <p className="mt-1 text-step--1 text-muted-foreground">
-            Based at {site.address} · Covering {site.serviceArea}
-          </p>
-          {import.meta.env.DEV && (
-            <span className="mt-2 inline-block rounded-xs border border-border bg-card px-2 py-0.5 text-step--1 font-semibold uppercase tracking-wider text-muted-foreground">
-              Replace with real Google Map embed
-            </span>
-          )}
-        </div>
+        )}
       </div>
     </div>
   );
@@ -77,7 +78,7 @@ export function Photo({
 
   return (
     <figure
-      className={`group relative ${ratio} m-0 w-full overflow-hidden rounded-sm border border-border bg-secondary ${className ?? ""}`}
+      className={`group relative ${ratio} m-0 w-full overflow-hidden bg-surface-deep ${className ?? ""}`}
     >
       {hasImage ? (
         <img
@@ -94,9 +95,8 @@ export function Photo({
         <div
           role="img"
           aria-label={label}
-          className="flex size-full flex-col items-center justify-center bg-secondary p-6 text-center"
+          className="flex size-full flex-col items-center justify-center bg-surface-deep p-6 text-center"
         >
-          <ImageIcon className="size-5 text-muted-foreground/60" aria-hidden="true" />
           {import.meta.env.DEV && (
             <span className="mt-3 text-step--1 font-semibold uppercase tracking-wider text-muted-foreground">
               {label} - add a real photo
@@ -105,7 +105,7 @@ export function Photo({
         </div>
       )}
       {tag && (
-        <span className="absolute top-3 left-3 rounded-xs bg-primary px-2 py-0.5 text-step--1 font-bold uppercase tracking-wider text-primary-foreground">
+        <span className="absolute top-0 left-0 bg-accent px-2.5 py-1 text-step--1 font-bold uppercase tracking-[0.14em] text-accent-ink">
           {tag}
         </span>
       )}
@@ -125,7 +125,7 @@ export function StatCard({
 }) {
   return (
     <div className="rounded-sm border border-border bg-card p-5 sm:p-6">
-      <p className="font-display text-3xl font-bold uppercase leading-none tracking-tight text-primary sm:text-4xl">
+      <p className="display text-3xl font-bold uppercase leading-none tracking-tight text-primary sm:text-4xl">
         {value}
       </p>
       <p className="mt-3 text-step--1 font-bold uppercase tracking-wider text-foreground">
@@ -141,7 +141,7 @@ export function NAPBlock() {
   return (
     <div className="rounded-sm border border-border bg-card p-6 text-step--1">
       <div className="mb-4 flex items-center justify-between border-b border-border pb-3">
-        <h3 className="font-display text-step-0 font-bold uppercase tracking-tight text-foreground">
+        <h3 className="display text-step-0 font-bold uppercase tracking-tight text-foreground">
           {site.businessName}
         </h3>
         <span className="rounded-xs bg-secondary px-2 py-0.5 text-step--1 font-semibold uppercase tracking-wider text-muted-foreground">
@@ -235,7 +235,7 @@ export function ReviewCard({
 // Accordion FAQ item
 export function FaqItem({ q, a }: { q: string; a: string }) {
   return (
-    <details className="group rounded-sm border border-border bg-card p-5 transition-colors open:bg-secondary/40">
+    <details className="group rounded-sm border border-border bg-card p-5 transition-colors open:bg-surface-alt">
       <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-step-0 font-bold uppercase tracking-wide text-foreground">
         <span>{q}</span>
         <span className="flex size-5 shrink-0 items-center justify-center rounded-xs bg-muted text-primary transition-transform group-open:rotate-45">
@@ -268,18 +268,16 @@ export function FinalCTA({
   children?: ReactNode;
 }) {
   return (
-    <section className="border-t border-border bg-brand-dark text-on-dark">
-      <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
+    <section className="bg-dark-surface text-on-dark">
+      <div className="band-pad mx-auto max-w-6xl px-5 sm:px-6">
         <div className="grid items-center gap-10 lg:grid-cols-[1.3fr_1fr]">
           <div>
             <div className="mb-3 flex items-center gap-2">
-              <p className="text-step--1 font-bold uppercase tracking-widest text-accent">
+              <p className="text-step--1 font-bold uppercase tracking-widest text-mark">
                 Available in {site.mainTown}
               </p>
             </div>
-            <h2 className="font-display text-3xl font-bold uppercase leading-[1.05] tracking-tight text-on-dark sm:text-4xl md:text-5xl">
-              {heading}
-            </h2>
+            <h2 className="display text-step-3 text-on-dark">{heading}</h2>
             <p className="mt-5 max-w-xl text-step-0 leading-relaxed text-on-dark-muted sm:text-base">
               {subheading}
             </p>
@@ -287,14 +285,14 @@ export function FinalCTA({
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href={site.phoneHref}
-                className="inline-flex items-center gap-1.5 rounded-sm bg-accent px-5 py-3 text-step--1 font-bold uppercase tracking-wider text-accent-foreground transition-all hover:bg-accent/90"
+                className="tabular inline-flex min-h-12 items-center gap-2 bg-accent px-6 text-step--1 font-bold uppercase tracking-[0.12em] text-accent-ink transition-colors hover:bg-accent/90"
               >
                 <Phone className="size-4" />
-                <span>Call Now · {site.phone}</span>
+                <span>Call now, {site.phone}</span>
               </a>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-1.5 rounded-sm border border-on-dark-border bg-on-dark-surface px-5 py-3 text-step--1 font-bold uppercase tracking-wider text-on-dark transition-all hover:bg-on-dark-surface"
+                className="rule-t-on-dark rule-b-on-dark inline-flex min-h-12 items-center px-6 text-step--1 font-bold uppercase tracking-[0.12em] text-on-dark transition-colors hover:bg-on-dark-surface"
               >
                 Request a Quote
               </Link>
@@ -302,19 +300,23 @@ export function FinalCTA({
 
             <div className="mt-8 flex flex-wrap gap-5 text-step--1 text-on-dark-faint">
               <span className="inline-flex items-center gap-1.5">
-                <Check className="size-3.5 text-accent" /> Clear quote before work
+                <Check className="size-3.5 text-mark" /> Clear quote before work
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Check className="size-3.5 text-accent" /> Guaranteed workmanship
+                <Check className="size-3.5 text-mark" /> Guaranteed workmanship
               </span>
               <span className="inline-flex items-center gap-1.5">
-                <Check className="size-3.5 text-accent" /> Fully insured
+                <Check className="size-3.5 text-mark" /> Fully insured
               </span>
             </div>
             {children}
           </div>
 
-          <MapPlaceholder label={`Map of ${site.mainTown} service area`} height="h-72 lg:h-80" />
+          <Photo
+            label={`${site.businessName} van in ${site.mainTown}`}
+            ratio="aspect-[4/3] lg:aspect-[5/4]"
+            index={2}
+          />
         </div>
       </div>
     </section>

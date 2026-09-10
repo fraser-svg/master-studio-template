@@ -32,7 +32,9 @@ function AreasHub() {
     <>
       <Section className="border-b border-border bg-background">
         <Eyebrow>Coverage</Eyebrow>
-        <SectionHeading>Areas we cover</SectionHeading>
+        <SectionHeading as="h1" scale="hero">
+          Areas we cover
+        </SectionHeading>
         <p className="mt-5 max-w-2xl text-step-0 leading-relaxed text-muted-foreground">
           Based in {site.mainTown}, we cover {site.serviceArea}. The towns below with their own page
           have real local jobs and verified details - we only list a town here if we genuinely work
@@ -45,7 +47,7 @@ function AreasHub() {
 
         <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-14">
           <div>
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-foreground">
+            <h2 className="display text-lg font-bold uppercase tracking-tight text-foreground">
               Towns with dedicated pages
             </h2>
             <p className="mt-2 text-step-0 text-muted-foreground">
@@ -58,10 +60,10 @@ function AreasHub() {
                   key={t.slug}
                   to="/areas/$town"
                   params={{ town: t.slug }}
-                  className="group flex items-center justify-between rounded-sm border border-border bg-card p-4 hover:border-primary/40 hover:bg-secondary/40"
+                  className="group flex items-center justify-between rounded-sm border border-border bg-card p-4 hover:border-primary/40 hover:bg-surface-alt"
                 >
                   <div>
-                    <span className="font-display text-base font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
+                    <span className="display text-base font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
                       {t.name}
                     </span>
                     <span className="mt-1 block text-step--1 text-muted-foreground">
@@ -75,7 +77,7 @@ function AreasHub() {
           </div>
 
           <div>
-            <h2 className="font-display text-lg font-bold uppercase tracking-tight text-foreground">
+            <h2 className="display text-lg font-bold uppercase tracking-tight text-foreground">
               Also covered nearby
             </h2>
             <p className="mt-2 text-step-0 text-muted-foreground">
@@ -88,7 +90,7 @@ function AreasHub() {
             </p>
 
             <div className="mt-8 rounded-sm border border-border bg-secondary p-6">
-              <p className="font-display text-step-0 font-bold uppercase tracking-tight text-foreground">
+              <p className="display text-step-0 font-bold uppercase tracking-tight text-foreground">
                 Not sure if we cover you?
               </p>
               <p className="mt-2 text-step-0 text-muted-foreground">

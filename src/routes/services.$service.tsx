@@ -134,7 +134,7 @@ function ServicePage() {
           <Eyebrow>Individual Service</Eyebrow>
           <div className="grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14">
             <div>
-              <h1 className="font-display text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              <h1 className="display text-step-4">
                 {s.name} in {site.mainTown}
               </h1>
               <p className="mt-5 text-step-0 leading-relaxed text-muted-foreground">
@@ -157,18 +157,18 @@ function ServicePage() {
       </section>
 
       {/* 2. What's Included & Signs */}
-      <section className="border-b border-border bg-secondary/40">
+      <section className="border-b border-border bg-surface-alt">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
             <div className="rounded-sm border border-border bg-card p-7">
               <Eyebrow>Scope</Eyebrow>
-              <h2 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-foreground">
+              <h2 className="mt-2 display text-xl font-bold uppercase tracking-tight text-foreground">
                 What's included in {s.name}
               </h2>
               <ul className="mt-5 space-y-3">
                 {included.map((i) => (
                   <li key={i} className="flex items-start gap-2.5 text-step-0 text-foreground/90">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-accent" />
+                    <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-mark" />
                     <span>{i}</span>
                   </li>
                 ))}
@@ -177,7 +177,7 @@ function ServicePage() {
 
             <div className="rounded-sm border border-border bg-card p-7">
               <Eyebrow>Diagnostics</Eyebrow>
-              <h2 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-foreground">
+              <h2 className="mt-2 display text-xl font-bold uppercase tracking-tight text-foreground">
                 Signs you need {s.name.toLowerCase()}
               </h2>
               <ul className="mt-5 space-y-3">
@@ -205,9 +205,9 @@ function ServicePage() {
               { n: "03", t: "Carry out the work", d: "Tidy, tested, and explained." },
               { n: "04", t: "Backed guarantee", d: "Workmanship guaranteed on every job." },
             ].map((step) => (
-              <div key={step.n} className="rounded-sm border border-border bg-secondary/50 p-5">
-                <span className="font-display text-lg font-bold text-primary">[{step.n}]</span>
-                <h3 className="mt-3 font-display text-step-0 font-bold uppercase tracking-tight text-foreground">
+              <div key={step.n} className="rounded-sm border border-border bg-surface-alt-soft p-5">
+                <span className="display text-lg font-bold text-primary">[{step.n}]</span>
+                <h3 className="mt-3 display text-step-0 font-bold uppercase tracking-tight text-foreground">
                   {step.t}
                 </h3>
                 <p className="mt-2 text-step-0 text-muted-foreground">{step.d}</p>
@@ -218,15 +218,15 @@ function ServicePage() {
       </section>
 
       {/* 4. Cost breakdown */}
-      <section className="border-b border-border bg-secondary/40">
+      <section className="border-b border-border bg-surface-alt">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-8">
             <div className="rounded-sm border border-border bg-card p-7">
               <Eyebrow>Pricing transparency</Eyebrow>
-              <h2 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-foreground">
+              <h2 className="mt-2 display text-xl font-bold uppercase tracking-tight text-foreground">
                 What {s.name.toLowerCase()} costs
               </h2>
-              <p className="mt-4 font-display text-3xl font-bold uppercase leading-none text-primary">
+              <p className="mt-4 display text-3xl font-bold uppercase leading-none text-primary">
                 {s.priceRange}
               </p>
               <p className="mt-3 text-step-0 leading-relaxed text-muted-foreground">
@@ -236,7 +236,7 @@ function ServicePage() {
             </div>
             <div className="flex flex-col justify-between rounded-sm border border-border bg-card p-7">
               <div>
-                <h3 className="font-display text-step-0 font-bold uppercase tracking-tight text-foreground">
+                <h3 className="display text-step-0 font-bold uppercase tracking-tight text-foreground">
                   No hidden extras
                 </h3>
                 <p className="mt-3 text-step-0 leading-relaxed text-muted-foreground">
@@ -266,7 +266,7 @@ function ServicePage() {
                   tag={`Job 0${i}`}
                   index={i}
                 />
-                <h3 className="mt-4 font-display text-step-0 font-bold uppercase tracking-tight text-foreground">
+                <h3 className="mt-4 display text-step-0 font-bold uppercase tracking-tight text-foreground">
                   {s.name} job {i} in {site.mainTown}
                 </h3>
                 <p className="mt-2 text-step--1 text-muted-foreground">
@@ -279,7 +279,7 @@ function ServicePage() {
       </section>
 
       {/* 6. Service Reviews */}
-      <section className="border-b border-border bg-secondary/40">
+      <section className="border-b border-border bg-surface-alt">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <Eyebrow>Verified feedback</Eyebrow>
           <SectionHeading>{s.name} - Customer reviews</SectionHeading>
@@ -303,10 +303,10 @@ function ServicePage() {
       </section>
 
       {/* 8. Areas & Related */}
-      <section className="border-b border-border bg-secondary/40">
+      <section className="border-b border-border bg-surface-alt">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <Eyebrow>Coverage</Eyebrow>
-          <h2 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-foreground">
+          <h2 className="mt-2 display text-xl font-bold uppercase tracking-tight text-foreground">
             Where we carry out {s.name.toLowerCase()}
           </h2>
           <div className="mt-6 flex flex-wrap gap-2.5">
@@ -323,7 +323,7 @@ function ServicePage() {
           </div>
 
           <div className="mt-12 border-t border-border pt-10">
-            <h3 className="font-display text-lg font-bold uppercase tracking-tight text-foreground">
+            <h3 className="display text-lg font-bold uppercase tracking-tight text-foreground">
               Related services
             </h3>
             <div className="mt-6 grid gap-5 sm:grid-cols-3">
@@ -334,7 +334,7 @@ function ServicePage() {
                   params={{ service: r.slug }}
                   className="group rounded-sm border border-border bg-card p-5 hover:border-primary/40"
                 >
-                  <h4 className="font-display text-step-0 font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
+                  <h4 className="display text-step-0 font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
                     {r.name}
                   </h4>
                   <p className="mt-2 text-step-0 text-muted-foreground line-clamp-2">{r.short}</p>

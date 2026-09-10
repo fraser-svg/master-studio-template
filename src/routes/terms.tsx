@@ -28,7 +28,7 @@ function TermsPage() {
 
         <div className="mt-10 max-w-3xl space-y-8 text-step-0 leading-relaxed text-muted-foreground">
           <div>
-            <h2 className="font-display text-base font-bold uppercase tracking-tight text-foreground">
+            <h2 className="display text-base font-bold uppercase tracking-tight text-foreground">
               Quotes &amp; Pricing
             </h2>
             <p className="mt-3">
@@ -39,7 +39,7 @@ function TermsPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-base font-bold uppercase tracking-tight text-foreground">
+            <h2 className="display text-base font-bold uppercase tracking-tight text-foreground">
               Callouts &amp; diagnostics
             </h2>
             <p className="mt-3">
@@ -49,7 +49,7 @@ function TermsPage() {
           </div>
 
           <div>
-            <h2 className="font-display text-base font-bold uppercase tracking-tight text-foreground">
+            <h2 className="display text-base font-bold uppercase tracking-tight text-foreground">
               Guarantees
             </h2>
             <p className="mt-3">

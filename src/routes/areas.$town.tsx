@@ -103,7 +103,7 @@ function AreaPage() {
           <Eyebrow>Local Area</Eyebrow>
           <div className="grid items-start gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
             <div>
-              <h1 className="font-display text-3xl font-bold uppercase leading-[1.05] tracking-tight text-foreground sm:text-4xl md:text-5xl">
+              <h1 className="display text-step-4">
                 {site.trade} in {t.name}
               </h1>
               <p className="mt-5 text-step-0 leading-relaxed text-muted-foreground">
@@ -149,12 +149,12 @@ function AreaPage() {
       </section>
 
       {/* Local housing stock context */}
-      <section className="border-b border-border bg-secondary/40">
+      <section className="border-b border-border bg-surface-alt">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
             <div>
               <Eyebrow>Local housing context</Eyebrow>
-              <h2 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-foreground">
+              <h2 className="mt-2 display text-xl font-bold uppercase tracking-tight text-foreground">
                 Working in {t.name}
               </h2>
               <div className="mt-5 space-y-4 text-step-0 leading-relaxed text-muted-foreground">
@@ -188,7 +188,7 @@ function AreaPage() {
                 params={{ service: s.slug }}
                 className="group rounded-sm border border-border bg-card p-6 hover:border-primary/40"
               >
-                <h3 className="font-display text-base font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
+                <h3 className="display text-base font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
                   {s.name}
                 </h3>
                 <p className="mt-2 text-step-0 text-muted-foreground line-clamp-2">{s.short}</p>
@@ -202,12 +202,12 @@ function AreaPage() {
       </section>
 
       {/* Recent job & town review */}
-      <section className="border-b border-border bg-secondary/40">
+      <section className="border-b border-border bg-surface-alt">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
             <div>
               <Eyebrow>Town job</Eyebrow>
-              <h2 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-foreground">
+              <h2 className="mt-2 display text-xl font-bold uppercase tracking-tight text-foreground">
                 Recent work in {t.name}
               </h2>
               <div className="mt-6 rounded-sm border border-border bg-card p-5">
@@ -216,7 +216,7 @@ function AreaPage() {
                   ratio="aspect-[16/10]"
                   tag="Completed Job"
                 />
-                <h3 className="mt-4 font-display text-base font-bold uppercase tracking-tight text-foreground">
+                <h3 className="mt-4 display text-base font-bold uppercase tracking-tight text-foreground">
                   Job example in {t.name}
                 </h3>
                 <p className="mt-2 text-step-0 text-muted-foreground">
@@ -227,7 +227,7 @@ function AreaPage() {
 
             <div>
               <Eyebrow>Town review</Eyebrow>
-              <h2 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-foreground">
+              <h2 className="mt-2 display text-xl font-bold uppercase tracking-tight text-foreground">
                 Customer review from {t.name}
               </h2>
               <div className="mt-6">
@@ -247,7 +247,7 @@ function AreaPage() {
       <section className="border-b border-border bg-background">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <Eyebrow>Neighbouring towns</Eyebrow>
-          <h2 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-foreground">
+          <h2 className="mt-2 display text-xl font-bold uppercase tracking-tight text-foreground">
             Nearby areas we also serve
           </h2>
           <div className="mt-6 flex flex-wrap gap-2.5">

@@ -61,7 +61,7 @@ function ServicesHub() {
     <>
       <Section className="border-b border-border bg-background">
         <Eyebrow>Services Hub</Eyebrow>
-        <SectionHeading>
+        <SectionHeading as="h1" scale="hero">
           {site.trade} services in {site.mainTown}
         </SectionHeading>
         <p className="mt-5 max-w-2xl text-step-0 leading-relaxed text-muted-foreground">
@@ -86,7 +86,7 @@ function ServicesHub() {
                   tag={`0${idx + 1}`}
                   index={idx}
                 />
-                <h2 className="mt-4 font-display text-lg font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
+                <h2 className="mt-4 display text-lg font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
                   {s.name}
                 </h2>
                 <p className="mt-2 text-step-0 text-muted-foreground line-clamp-2">{s.short}</p>
@@ -108,7 +108,7 @@ function ServicesHub() {
             <p className="text-step--1 font-bold uppercase tracking-widest text-primary">
               Need advice?
             </p>
-            <h2 className="mt-2 font-display text-xl font-bold uppercase tracking-tight text-foreground sm:text-2xl">
+            <h2 className="mt-2 display text-xl font-bold uppercase tracking-tight text-foreground sm:text-2xl">
               Not sure which service you need?
             </h2>
             <p className="mt-3 text-step-0 leading-relaxed text-muted-foreground">
