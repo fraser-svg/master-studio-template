@@ -34,10 +34,6 @@ const siteRaw = {
 
   // Where quote forms POST. Must be a real https URL Custom Value before launch
   // — see src/lib/leads.ts, which refuses to fake success without it.
-  // Visual theme for this deployment: "" = Forest (default),
-  // "industrial" = concrete + safety orange, "premium" = near-black + metallic.
-  // Defined in src/styles.css; no component changes are needed to switch.
-
   leadEndpoint: "{{ custom_values.lead_endpoint }}",
 
   // Hero photograph for this business. Swapped per deployment; never hard-coded

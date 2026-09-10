@@ -15,6 +15,7 @@ import appCss from "../styles.css?url";
 import { reportVibeError } from "../lib/vibe-error-reporting";
 import { site } from "../lib/site";
 import { PhoneLink, EmailLink } from "../components/site";
+import { Toaster } from "@/components/ui/sonner";
 import { JsonLd } from "../components/sections";
 import { demoText } from "../lib/demo";
 
@@ -401,6 +402,9 @@ function RootShell({ children }: { children: ReactNode }) {
         <main>{children}</main>
         <Footer />
         <MobileCallBar />
+        {/* Every quote form reports through sonner. Without this mounted the
+            forms fail and succeed in total silence. */}
+        <Toaster position="top-center" richColors closeButton />
         <Scripts />
       </body>
     </html>

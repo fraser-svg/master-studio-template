@@ -34,6 +34,7 @@ re-skinned by replacing those values and the two font families. Nothing else.
 | Finding | Fix |
 |---|---|
 | Contact form faked success — `console.log` + `toast.success`, every enquiry lost | `src/routes/contact.tsx` now `await submitLead(...)` with the same `LeadError` handling as the hero form |
+| `<Toaster />` was never mounted, so both quote forms succeeded and failed in total silence | mounted in `src/routes/__root.tsx`; verified at runtime — submitting the contact form with no `lead_endpoint` now shows "No lead endpoint configured…" instead of nothing |
 | Hero fell back to an external `vibe.filesafe.space` URL — third-party asset on every client site's LCP | `public/hero-placeholder.svg`, local, obviously a placeholder |
 
 ## P1s fixed
@@ -64,6 +65,8 @@ white/black utilities, focus-visible present.
 
 - `bun run lint` — 0 errors, 10 pre-existing react-refresh warnings in `ui/`.
 - `bun run build` — clean.
+- Contact form submitted in a real browser with `lead_endpoint` unset: error toast
+  shown, form not reset. The old code showed a success toast and cleared the form.
 - Repaint test: changing only `--primary`, `--brand`, `--brand-dark`, `--accent` and
   `--dark-surface` re-skinned the whole site (header, hero, buttons, icons, forms,
   bands) with no component edits. Reverted.
