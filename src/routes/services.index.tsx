@@ -17,7 +17,7 @@ export const Route = createFileRoute("/services/")({
     meta: [
       {
         name: "description",
-        content: `Browse all ${site.trade} services from ${site.businessName} — repairs, installations, and emergency callouts across ${site.serviceArea}.`,
+        content: `Browse all ${site.trade} services from ${site.businessName} - repairs, installations, and emergency callouts across ${site.serviceArea}.`,
       },
       {
         property: "og:title",
@@ -67,7 +67,7 @@ function ServicesHub() {
         <p className="mt-5 max-w-2xl text-step-0 leading-relaxed text-muted-foreground">
           We carry out the {site.trade.toLowerCase()} jobs below across {site.serviceArea}. Each
           service has its own page with what is included, rough cost ranges, and the signs you need
-          it — so you know exactly what to expect before calling.
+          it - so you know exactly what to expect before calling.
         </p>
 
         {/* 3-column editorial cards grid */}

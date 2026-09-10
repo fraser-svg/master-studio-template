@@ -9,7 +9,7 @@ export const Route = createFileRoute("/faqs")({
     meta: [
       {
         name: "description",
-        content: `Frequently asked questions about our ${site.trade.toLowerCase()} work — pricing, availability, areas covered, guarantees, and emergency callouts.`,
+        content: `Frequently asked questions about our ${site.trade.toLowerCase()} work - pricing, availability, areas covered, guarantees, and emergency callouts.`,
       },
       {
         property: "og:title",

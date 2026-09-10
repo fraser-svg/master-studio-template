@@ -24,7 +24,7 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
 
-  /* Heavy brand colour — graphite in the base palette */
+  /* Heavy brand colour - graphite in the base palette */
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
 
@@ -65,7 +65,7 @@
   --color-dark-surface: var(--dark-surface);
   --color-star: var(--star);
 
-  /* Type scale — 5 steps, 1.25+ ratio, fluid on marketing pages */
+  /* Type scale - 5 steps, 1.25+ ratio, fluid on marketing pages */
   --text-step--1: clamp(0.8125rem, 0.79rem + 0.11vw, 0.875rem);
   --text-step-0: clamp(0.9375rem, 0.91rem + 0.14vw, 1rem);
   --text-step-1: clamp(1.125rem, 1.06rem + 0.31vw, 1.3125rem);
@@ -77,11 +77,11 @@
 :root {
   --radius: 0.25rem;
 
-  /* BASE PALETTE — a neutral starting point, not a brand.
+  /* BASE PALETTE - a neutral starting point, not a brand.
      Every client build repaints these values from the real scraped colours.
      Graphite + warm concrete + one restrained accent. Nothing decorative. */
 
-  /* Warm concrete page ground — off-white with grit, never pure white */
+  /* Warm concrete page ground - off-white with grit, never pure white */
   --background: oklch(0.955 0.004 75);
   --foreground: oklch(0.175 0.006 75);
 
@@ -91,18 +91,18 @@
   --popover: oklch(0.985 0.003 75);
   --popover-foreground: oklch(0.175 0.006 75);
 
-  /* Graphite — the heavy brand colour. Near-black with a warm cast. */
+  /* Graphite - the heavy brand colour. Near-black with a warm cast. */
   --primary: oklch(0.235 0.008 75);
   --primary-foreground: oklch(0.975 0.004 75);
 
-  /* Alternating band surface — mid concrete */
+  /* Alternating band surface - mid concrete */
   --secondary: oklch(0.915 0.006 75);
   --secondary-foreground: oklch(0.2 0.008 75);
 
   --muted: oklch(0.925 0.005 75);
   --muted-foreground: oklch(0.44 0.008 75);
 
-  /* Accent — worn-steel blue. Buttons, active states, small marks only. */
+  /* Accent - worn-steel blue. Buttons, active states, small marks only. */
   --accent: oklch(0.52 0.11 245);
   --accent-foreground: oklch(0.97 0.006 245);
 
@@ -137,7 +137,7 @@
 /* ---------------------------------------------------------------------------
    ONE THEME
    There is a single palette: the :root block above. A client site is re-skinned
-   by replacing those values (and the two font families) — nothing else. If a
+   by replacing those values (and the two font families) - nothing else. If a
    component needs a colour that is not a token up there, the token is missing;
    add it, do not hard-code it.
 --------------------------------------------------------------------------- */

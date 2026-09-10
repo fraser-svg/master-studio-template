@@ -57,7 +57,7 @@ function ContactPage() {
   const onSubmit = async (data: FormValues) => {
     try {
       await submitLead({ ...data, source: "contact-page" });
-      toast.success("Thanks — we'll be in touch shortly.");
+      toast.success("Thanks - we'll be in touch shortly.");
       reset();
     } catch (err) {
       toast.error(
@@ -182,7 +182,7 @@ function ContactPage() {
                 {...register("need")}
                 rows={4}
                 className="w-full rounded-sm border border-input bg-background px-3.5 py-2.5 text-step-0 text-foreground transition-colors focus:border-primary"
-                placeholder="Describe the problem, symptom, or job in your own words…"
+                placeholder="Describe the problem, symptom, or job in your own words..."
               />
             </Field>
 
@@ -200,7 +200,7 @@ function ContactPage() {
               disabled={isSubmitting}
               className="w-full rounded-sm bg-accent py-3 text-step-0 font-bold uppercase tracking-wider text-accent-foreground transition-all hover:bg-accent/90 disabled:opacity-60"
             >
-              {isSubmitting ? "Sending…" : "Request a Quote"}
+              {isSubmitting ? "Sending..." : "Request a Quote"}
             </button>
 
             <p className="text-center text-step-0 text-muted-foreground">

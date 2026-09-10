@@ -275,7 +275,7 @@ function Footer() {
               to="/contact"
               className="inline-flex items-center gap-1.5 rounded-sm border border-on-dark-border bg-on-dark-surface px-5 py-2.5 text-step--1 font-bold uppercase tracking-wider text-on-dark transition-colors hover:bg-on-dark-surface"
             >
-              Request Quote
+              Request a Quote
             </Link>
           </div>
         </div>
@@ -335,7 +335,7 @@ function MobileCallBar() {
           to="/contact"
           className="flex min-h-11 flex-1 items-center justify-center rounded-sm border border-on-dark-border bg-on-dark-surface text-step--1 font-bold uppercase tracking-wider text-on-dark"
         >
-          Get a quote
+          Request a Quote
         </Link>
       </div>
     </div>

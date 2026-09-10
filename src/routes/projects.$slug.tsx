@@ -169,7 +169,7 @@ function ProjectPage() {
             </p>
             <p className="mt-3 text-base italic text-foreground">"{p.comment}"</p>
             <p className="mt-3 text-step--1 font-semibold text-primary">
-              — {p.author}, {p.town}
+              - {p.author}, {p.town}
             </p>
           </div>
         </div>

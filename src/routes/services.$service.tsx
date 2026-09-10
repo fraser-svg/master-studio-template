@@ -74,8 +74,8 @@ function ServicePage() {
     {
       q: `Can you do ${s.name.toLowerCase()} same-day?`,
       a: site.sameDay
-        ? `Yes — for emergencies we aim same-day, often within the hour locally. Booked work is usually within 2–3 days.`
-        : `Booked work is usually within 2–3 days. We'll give you a real arrival window when you call.`,
+        ? `Yes - for emergencies we aim same-day, often within the hour locally. Booked work is usually within 2-3 days.`
+        : `Booked work is usually within 2-3 days. We'll give you a real arrival window when you call.`,
     },
     {
       q: `Is ${s.name.toLowerCase()} work guaranteed?`,
@@ -241,7 +241,7 @@ function ServicePage() {
                 </h3>
                 <p className="mt-3 text-step-0 leading-relaxed text-muted-foreground">
                   Parts are priced before fitting. If the job turns out more complex once inspected,
-                  we stop, show you why, and re-confirm — never just keep billing.
+                  we stop, show you why, and re-confirm - never just keep billing.
                 </p>
               </div>
               <div className="mt-6">
@@ -270,7 +270,7 @@ function ServicePage() {
                   {s.name} job {i} in {site.mainTown}
                 </h3>
                 <p className="mt-2 text-step--1 text-muted-foreground">
-                  Real job photo placeholder — replace with actual on-site photograph.
+                  Real job photo placeholder - replace with actual on-site photograph.
                 </p>
               </div>
             ))}
@@ -282,7 +282,7 @@ function ServicePage() {
       <section className="border-b border-border bg-secondary/40">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
           <Eyebrow>Verified feedback</Eyebrow>
-          <SectionHeading>{s.name} — Customer reviews</SectionHeading>
+          <SectionHeading>{s.name} - Customer reviews</SectionHeading>
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {serviceReviews.map((r) => (
               <ReviewCard key={r.name} {...r} service={s.name} />

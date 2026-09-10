@@ -1,6 +1,6 @@
 import { withDemoContent } from "./demo";
 
-// Site configuration — central place for all Custom Value merge fields.
+// Site configuration - central place for all Custom Value merge fields.
 //
 // This file holds the GoHighLevel Custom Value tokens used across the whole
 // template. Every value below is a merge field of the form:
@@ -9,7 +9,7 @@ import { withDemoContent } from "./demo";
 // To deploy for a real business, set the matching Custom Values in your
 // account and the entire site (business name, trade, town, phone, email,
 // services, areas, trust signals, CTAs, footer and core SEO text) updates
-// automatically. Do NOT hard-code business-specific text in the route files —
+// automatically. Do NOT hard-code business-specific text in the route files -
 // reference it through `site` here instead.
 //
 // NOTE: Custom Values are plain text, so anything that needs to stay
@@ -33,7 +33,7 @@ const siteRaw = {
   hoursShort: "{{ custom_values.opening_hours }}",
 
   // Where quote forms POST. Must be a real https URL Custom Value before launch
-  // — see src/lib/leads.ts, which refuses to fake success without it.
+  // - see src/lib/leads.ts, which refuses to fake success without it.
   leadEndpoint: "{{ custom_values.lead_endpoint }}",
 
   // Hero photograph for this business. Swapped per deployment; never hard-coded
@@ -119,7 +119,7 @@ const townsRaw = [
   },
 ];
 
-// Services — each gets its own page at /services/[slug].
+// Services - each gets its own page at /services/[slug].
 // Names, slugs, short descriptions and price ranges come from Custom Values so
 // homepage cards, footer links and the services hub stay in sync. The detailed
 // service-page copy (what's included, signs, process, cost factors, FAQs) is
@@ -187,7 +187,7 @@ const servicesRaw = [
   },
 ];
 
-// Recent work / projects — page-specific proof. Keep as unique template copy
+// Recent work / projects - page-specific proof. Keep as unique template copy
 // (NOT Custom Values): replace each entry with a real job's details and photos.
 const projectsRaw = [
   {
@@ -237,7 +237,7 @@ const projectsRaw = [
   },
 ];
 
-// Reviews — individual review text is page-specific proof, kept as unique
+// Reviews - individual review text is page-specific proof, kept as unique
 // template copy. Replace each with a real review (first name, town, service, text).
 const reviewsRaw = [
   {
@@ -284,7 +284,7 @@ const reviewsRaw = [
   },
 ];
 
-// General FAQs — answers reference Custom Values for trade, town, phone,
+// General FAQs - answers reference Custom Values for trade, town, phone,
 // accreditation and licence so they stay correct across businesses.
 const faqsGeneralRaw = [
   {
@@ -293,15 +293,15 @@ const faqsGeneralRaw = [
   },
   {
     q: "How quickly can you come out?",
-    a: "For emergencies we aim for same-day, often within the hour locally. For booked work, usually within 2–3 days.",
+    a: "For emergencies we aim for same-day, often within the hour locally. For booked work, usually within 2-3 days.",
   },
   {
     q: "Do you charge a callout fee?",
-    a: "For emergency callouts there's a minimum charge that covers the first hour. We'll tell you the figure before we set off — no surprise bills.",
+    a: "For emergency callouts there's a minimum charge that covers the first hour. We'll tell you the figure before we set off - no surprise bills.",
   },
   {
     q: "Can you give a quote before visiting?",
-    a: "For straightforward jobs, yes — send us a photo. For anything that needs seeing, we'll give a rough range on the phone and confirm in person.",
+    a: "For straightforward jobs, yes - send us a photo. For anything that needs seeing, we'll give a rough range on the phone and confirm in person.",
   },
   {
     q: "Are you insured and licensed?",
@@ -309,7 +309,7 @@ const faqsGeneralRaw = [
   },
   {
     q: "Do you do commercial work?",
-    a: "We take on small commercial jobs — offices, shops, and rental units. Call us and we'll tell you honestly if it's our kind of work.",
+    a: "We take on small commercial jobs - offices, shops, and rental units. Call us and we'll tell you honestly if it's our kind of work.",
   },
 ];
 
@@ -323,7 +323,7 @@ const faqGroupsRaw = [
       },
       {
         q: "Is there a minimum charge?",
-        a: "Yes — a one-hour minimum for callouts. We'll tell you the amount before we head over.",
+        a: "Yes - a one-hour minimum for callouts. We'll tell you the amount before we head over.",
       },
       {
         q: "Do you offer payment plans on bigger jobs?",
@@ -340,7 +340,7 @@ const faqGroupsRaw = [
       },
       {
         q: "What counts as an emergency?",
-        a: "Anything that risks damage to your home if left — leaks, flooding, no heating in winter, and similar.",
+        a: "Anything that risks damage to your home if left - leaks, flooding, no heating in winter, and similar.",
       },
     ],
   },
@@ -349,7 +349,7 @@ const faqGroupsRaw = [
     items: [
       {
         q: "How far will you travel?",
-        a: "We cover {{ custom_values.service_area }}. Beyond that we may still help — call us with your postcode.",
+        a: "We cover {{ custom_values.service_area }}. Beyond that we may still help - call us with your postcode.",
       },
       {
         q: "Do you charge for travelling out?",
@@ -398,38 +398,38 @@ const faqGroupsRaw = [
   },
 ];
 
-// Pricing tiers — job labels and notes are unique template copy; prices use
+// Pricing tiers - job labels and notes are unique template copy; prices use
 // the service price-range Custom Values where a tier maps to a listed service.
 const pricingTiersRaw = [
   {
     job: "{{ custom_values.service_1_name }}",
     price: "{{ custom_values.service_1_price_range }}",
-    note: "Typical range — confirm in writing before starting",
+    note: "Typical range - confirm in writing before starting",
   },
   {
     job: "{{ custom_values.service_2_name }}",
     price: "{{ custom_values.service_2_price_range }}",
-    note: "Typical range — confirm in writing before starting",
+    note: "Typical range - confirm in writing before starting",
   },
   {
     job: "{{ custom_values.service_3_name }}",
     price: "{{ custom_values.service_3_price_range }}",
-    note: "Typical range — confirm in writing before starting",
+    note: "Typical range - confirm in writing before starting",
   },
   {
     job: "{{ custom_values.service_4_name }}",
     price: "{{ custom_values.service_4_price_range }}",
-    note: "Typical range — confirm in writing before starting",
+    note: "Typical range - confirm in writing before starting",
   },
   {
     job: "{{ custom_values.service_5_name }}",
     price: "{{ custom_values.service_5_price_range }}",
-    note: "Typical range — confirm in writing before starting",
+    note: "Typical range - confirm in writing before starting",
   },
   {
     job: "{{ custom_values.service_6_name }}",
     price: "{{ custom_values.service_6_price_range }}",
-    note: "Typical range — confirm in writing before starting",
+    note: "Typical range - confirm in writing before starting",
   },
   {
     job: "Emergency callout (out of hours)",

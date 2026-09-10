@@ -2,7 +2,7 @@
 //
 // The template's copy is written as GoHighLevel merge fields ({{ custom_values.x }})
 // and bracketed placeholders ([Town], [First name]). That is correct for a live
-// deployment, but it means the site is impossible to design, review or demo —
+// deployment, but it means the site is impossible to design, review or demo -
 // every heading renders as literal template syntax.
 //
 // This layer substitutes realistic demo content for those tokens whenever the
@@ -29,7 +29,7 @@ const VALUES: Record<string, string> = {
   phone: "0114 496 0182",
   email: "office@mardenroofing.co.uk",
   address: "Unit 7, Parkway Works, Sheffield S9 3BL",
-  opening_hours: "Mon–Sat, 7am–6pm",
+  opening_hours: "Mon-Sat, 7am-6pm",
 
   google_rating: "4.9",
   review_count: "187",
@@ -44,48 +44,48 @@ const VALUES: Record<string, string> = {
 
   town_1_name: "Sheffield",
   town_1_slug: "sheffield",
-  town_1_local_note: "Base town — 20 min response",
+  town_1_local_note: "Base town - 20 min response",
   town_2_name: "Rotherham",
   town_2_slug: "rotherham",
-  town_2_local_note: "8 miles — same-day callouts",
+  town_2_local_note: "8 miles - same-day callouts",
   town_3_name: "Chesterfield",
   town_3_slug: "chesterfield",
-  town_3_local_note: "12 miles — daily coverage",
+  town_3_local_note: "12 miles - daily coverage",
   town_4_name: "Barnsley",
   town_4_slug: "barnsley",
-  town_4_local_note: "15 miles — next-day survey",
+  town_4_local_note: "15 miles - next-day survey",
   town_5_name: "Doncaster",
   town_5_slug: "doncaster",
-  town_5_local_note: "18 miles — weekly rounds",
+  town_5_local_note: "18 miles - weekly rounds",
   town_6_name: "Dronfield",
   town_6_slug: "dronfield",
-  town_6_local_note: "9 miles — same-day callouts",
+  town_6_local_note: "9 miles - same-day callouts",
 
   service_1_name: "Roof repairs",
   service_1_slug: "roof-repairs",
   service_1_short_description:
     "Leaks, slipped slates and storm damage traced to the source and fixed properly, not patched.",
-  service_1_price_range: "£180–£850",
+  service_1_price_range: "£180-£850",
   service_2_name: "Full re-roofing",
   service_2_slug: "re-roofing",
   service_2_short_description:
     "Strip, re-felt, re-batten and re-cover, with the old roof cleared and disposed of.",
-  service_2_price_range: "£6,500–£14,000",
+  service_2_price_range: "£6,500-£14,000",
   service_3_name: "Flat roofing",
   service_3_slug: "flat-roofing",
   service_3_short_description:
     "GRP and EPDM flat roofs for extensions, garages and dormers, with a 20-year guarantee.",
-  service_3_price_range: "£1,900–£5,400",
+  service_3_price_range: "£1,900-£5,400",
   service_4_name: "Guttering & fascias",
   service_4_slug: "guttering-fascias",
   service_4_short_description:
     "Replacement UPVC guttering, soffits and fascias fitted from a scaffold tower, not a ladder.",
-  service_4_price_range: "£450–£2,200",
+  service_4_price_range: "£450-£2,200",
   service_5_name: "Chimney work",
   service_5_slug: "chimney-work",
   service_5_short_description:
     "Repointing, flaunching, lead flashing and removals, carried out by a roofer, not a bricklayer.",
-  service_5_price_range: "£320–£1,600",
+  service_5_price_range: "£320-£1,600",
   service_6_name: "Emergency callouts",
   service_6_slug: "emergency-callouts",
   service_6_short_description:
@@ -174,7 +174,7 @@ export function demoText(input: string, index = 0): string {
 
   if (SENTENCES[out]) out = SENTENCES[out]!;
 
-  // Review and project copy ships as "Replace with a real review. <sample>" —
+  // Review and project copy ships as "Replace with a real review. <sample>" -
   // in demo mode the instruction prefix goes, the sample sentence stays.
   out = out.replace(/^Replace with a real (?:review|customer comment)\.\s*/i, "");
 
@@ -204,10 +204,10 @@ export function withDemoContent<T>(value: T, index = 0): T {
   return value;
 }
 
-// Demo photography. Only ever used in demo mode — a GoHighLevel build renders
+// Demo photography. Only ever used in demo mode - a GoHighLevel build renders
 // the neutral placeholder surface instead, and clients supply their own work.
 const DEMO_PHOTOS = [
-  // Trade work and real properties only — no lifestyle interiors, no laptops.
+  // Trade work and real properties only - no lifestyle interiors, no laptops.
   // Verified to load; used exclusively in demo mode.
   "https://images.unsplash.com/photo-1632759145351-1d592919f522?w=1200&q=70&auto=format&fit=crop",
   "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1200&q=70&auto=format&fit=crop",
@@ -222,7 +222,7 @@ const DEMO_PHOTOS = [
 ];
 
 /**
- * A demo photograph. Pass `index` when rendering a list — it guarantees
+ * A demo photograph. Pass `index` when rendering a list - it guarantees
  * neighbouring cards get different photos, which hashing alone cannot.
  */
 export function demoPhoto(seed: string, index?: number): string | undefined {

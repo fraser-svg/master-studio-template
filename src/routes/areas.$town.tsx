@@ -29,7 +29,7 @@ export const Route = createFileRoute("/areas/$town")({
       meta: [
         {
           name: "description",
-          content: `${site.trade} in ${name}. ${site.businessName} works locally in ${name} — realistic response times, local jobs, and an honest quote. Call ${site.phone}.`,
+          content: `${site.trade} in ${name}. ${site.businessName} works locally in ${name} - realistic response times, local jobs, and an honest quote. Call ${site.phone}.`,
         },
         {
           property: "og:title",
@@ -68,13 +68,13 @@ function AreaPage() {
   const faqs = [
     {
       q: `How quickly can you get to ${t.name}?`,
-      a: `From our base in ${site.mainTown}, ${t.name} is about ${t.time} away. Emergencies we aim same-day; booked work usually within 2–3 days.`,
+      a: `From our base in ${site.mainTown}, ${t.name} is about ${t.time} away. Emergencies we aim same-day; booked work usually within 2-3 days.`,
     },
     {
       q: `Do you charge extra to come out to ${t.name}?`,
       a:
         t.slug === site.mainTown.toLowerCase()
-          ? `No — you're in our home town. Standard rates apply.`
+          ? `No - you're in our home town. Standard rates apply.`
           : `Within our normal area, no. We're in ${t.name} most weeks so there's no travel surcharge.`,
     },
     {
@@ -83,7 +83,7 @@ function AreaPage() {
     },
     {
       q: `Do you have local reviews in ${t.name}?`,
-      a: `Yes — we've carried out jobs across ${t.name}. See the review below and our reviews page for more.`,
+      a: `Yes - we've carried out jobs across ${t.name}. See the review below and our reviews page for more.`,
     },
   ];
 
@@ -109,13 +109,13 @@ function AreaPage() {
               <p className="mt-5 text-step-0 leading-relaxed text-muted-foreground">
                 {isHome ? (
                   <>
-                    We're based right here in {t.name} — {t.distance} is our front door. Most of our
+                    We're based right here in {t.name} - {t.distance} is our front door. Most of our
                     work is within a ten-minute drive, so for {t.name} emergencies we're usually on
                     the doorstep quickly. No travel surcharge and no waiting on a far-off company.
                   </>
                 ) : (
                   <>
-                    {t.name} is about {t.distance} from our base in {site.mainTown} — roughly a{" "}
+                    {t.name} is about {t.distance} from our base in {site.mainTown} - roughly a{" "}
                     {t.time} drive. We cover {t.name} most weeks, so we can fit you in promptly for
                     booked jobs and same-day for genuine emergencies.
                   </>
@@ -220,7 +220,7 @@ function AreaPage() {
                   Job example in {t.name}
                 </h3>
                 <p className="mt-2 text-step-0 text-muted-foreground">
-                  Real job photo placeholder — replace with an actual job completed in {t.name}.
+                  Real job photo placeholder - replace with an actual job completed in {t.name}.
                 </p>
               </div>
             </div>

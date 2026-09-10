@@ -1,9 +1,9 @@
-// Lead submission — the single path every quote form on the site uses.
+// Lead submission - the single path every quote form on the site uses.
 //
 // The endpoint is a GoHighLevel Custom Value so each deployment posts to its
 // own workflow/webhook without a code change. If it is unset (or still the raw
 // merge field), we fail loudly rather than telling the customer their enquiry
-// was sent when it was not — a silently dropped lead is the worst outcome this
+// was sent when it was not - a silently dropped lead is the worst outcome this
 // template can produce.
 
 import { site } from "./site";
@@ -30,7 +30,7 @@ export async function submitLead(payload: LeadPayload): Promise<void> {
 
   if (!url) {
     if (import.meta.env.DEV) {
-      console.warn("[leads] No lead_endpoint Custom Value set — payload:", payload);
+      console.warn("[leads] No lead_endpoint Custom Value set - payload:", payload);
       throw new LeadError(
         "No lead endpoint configured. Set the lead_endpoint Custom Value before going live.",
       );

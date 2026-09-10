@@ -3,7 +3,7 @@
 Date: 2026-09-10
 Audited against: `.impeccable.md` (masculine / tough / practical / trustworthy / plain / established)
 
-## Score: 18/20
+## Score: 19/20
 
 ## What changed in this pass
 
@@ -51,6 +51,48 @@ The 2026-09-09 audit listed 66 literal `text-white`/`bg-white` utilities, a miss
 `animate-ping` pill. All verified absent — fixed between that audit and this one.
 `check_placeholders.sh` confirms: no raw colour values in components, no literal
 white/black utilities, focus-visible present.
+
+## Anti-slop pass (design-taste-frontend + impeccable)
+
+Design read: redesign-preserve of a local trade services site for homeowners,
+trust-first language. Dials `DESIGN_VARIANCE 5 / MOTION_INTENSITY 3 / VISUAL_DENSITY 5`
+(trust-first overrides the 8/6/4 baseline; a roofer's site should not animate at 6).
+
+Mechanical failures found and fixed:
+
+| Check | Before | After |
+|---|---|---|
+| Em-dash / en-dash ban (zero allowed anywhere visible) | 96 across `src/` | 0 |
+| Eyebrow count, homepage (max `ceil(sections/3)` = 4) | 8 | 4 |
+| Identical `sm:grid-cols-2 lg:grid-cols-3` equal-card grids | 4 | 1 |
+| Hero text elements (max 4) | 6 - pill, headline, subtext, CTAs, 5-item trust strip | 4 |
+| `01 / 02 / 03` step numbering (banned generic step labels) | 6 | 0 |
+| Middle dots per line (max 1) | hero pill had 2 | 0 |
+| Duplicate CTA intent ("Request Quote" vs "Request a Quote", "Get a quote") | 3 labels, 1 intent | 1 label |
+
+What actually changed on the page:
+
+- **Hero.** The 5-item trust micro-strip is gone. It duplicated `HomeTrustBar`
+  directly below it verbatim, and the hero is one moment, not a feature list.
+- **"Field proof" eyebrow** renamed. Performative-craftsman labels ("field notes",
+  "from the field", "on the bench") are an explicit AI tell.
+- **Why choose us** was six bordered cards in a 3-up grid, each stamped `01`-`06`.
+  Now a two-column list with hairlines between rows. Nothing is boxed. The numbers
+  are gone; they carried no information.
+- **Areas we cover** was six equal cards, the same layout family as the services
+  grid two sections up. Now a divided two-column town list.
+- **What customers say** was six cards, each with an identical five-star row and a
+  letter-monogram avatar. Now four quotes at `text-step-1` in a divided two-column
+  layout. The rating is already stated in the trust bar; repeating five stars six
+  times is decoration, and initial-in-a-circle avatars are the "Jane Doe" tell.
+
+The homepage now uses nine distinct layout families across eleven sections. The
+services grid is the only card grid left, which is the right component for
+image + label + link items.
+
+Fixed while verifying: the new areas list overflowed the viewport horizontally at
+390px (`shrink-0` on the distance column). All routes now report no horizontal
+overflow at 390px.
 
 ## Open
 

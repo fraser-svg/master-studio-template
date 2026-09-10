@@ -95,7 +95,7 @@ export function TrustPill({
 }
 
 // Container with editorial max-width and clean, consistent padding.
-// Vertical rhythm: py-14 (mobile) / sm:py-20 (desktop) — generous but calm.
+// Vertical rhythm: py-14 (mobile) / sm:py-20 (desktop) - generous but calm.
 export function Section({
   children,
   className,
@@ -220,7 +220,7 @@ export function Breadcrumbs({ items }: { items: { label: string; to?: string }[]
 }
 
 // Directional cue for a card that is itself a link. Deliberately not a filled
-// circular badge — that reads as decoration bolted onto a card, not as a link.
+// circular badge - that reads as decoration bolted onto a card, not as a link.
 export function CardArrow({ className }: { className?: string }) {
   return (
     <span

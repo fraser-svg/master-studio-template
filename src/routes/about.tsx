@@ -10,7 +10,7 @@ export const Route = createFileRoute("/about")({
     meta: [
       {
         name: "description",
-        content: `About ${site.businessName} — ${site.yearsExperience}+ years of ${site.trade} in ${site.mainTown}. ${site.accreditation}, fully insured, and trusted by local customers.`,
+        content: `About ${site.businessName} - ${site.yearsExperience}+ years of ${site.trade} in ${site.mainTown}. ${site.accreditation}, fully insured, and trusted by local customers.`,
       },
       {
         property: "og:title",

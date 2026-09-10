@@ -9,7 +9,7 @@ export const Route = createFileRoute("/projects/")({
     meta: [
       {
         name: "description",
-        content: `Recent ${site.trade} jobs from ${site.businessName} across ${site.serviceArea} — real problems, real fixes, with before and after photos.`,
+        content: `Recent ${site.trade} jobs from ${site.businessName} across ${site.serviceArea} - real problems, real fixes, with before and after photos.`,
       },
       {
         property: "og:title",
@@ -31,7 +31,7 @@ function ProjectsHub() {
         <Eyebrow>Field portfolio</Eyebrow>
         <SectionHeading>Recent work</SectionHeading>
         <p className="mt-5 max-w-2xl text-step-0 leading-relaxed text-muted-foreground">
-          Real jobs we've carried out across {site.serviceArea} — the problem, what we found, what
+          Real jobs we've carried out across {site.serviceArea} - the problem, what we found, what
           we did, and roughly what it cost. No staged stock photography, just the actual work.
         </p>
 

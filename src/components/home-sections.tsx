@@ -3,17 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { toast } from "sonner";
-import {
-  Star,
-  Clock,
-  MapPin,
-  ArrowRight,
-  Phone,
-  Upload,
-  ShieldCheck,
-  CheckCircle2,
-  Check,
-} from "lucide-react";
+import { ArrowRight, Phone, Upload } from "lucide-react";
 import { site, services, towns, reviews, faqsGeneral, projects } from "@/lib/site";
 import {
   SectionHeading,
@@ -23,7 +13,7 @@ import {
   TrustStrip,
   CardArrow,
 } from "@/components/site";
-import { Photo, MapPlaceholder, NAPBlock, ReviewCard, FaqList } from "@/components/sections";
+import { Photo, MapPlaceholder, NAPBlock, FaqList } from "@/components/sections";
 import { LeadError, submitLead } from "@/lib/leads";
 
 // Hero photograph comes from a Custom Value so every deployment ships its own
@@ -75,7 +65,7 @@ export function HomeHero() {
   const onSubmit = async (data: HeroFormValues) => {
     try {
       await submitLead({ ...data, source: "home-hero" });
-      toast.success("Thanks — we'll be back to you as soon as possible.");
+      toast.success("Thanks - we'll be back to you as soon as possible.");
       reset();
     } catch (err) {
       toast.error(
@@ -107,9 +97,10 @@ export function HomeHero() {
         <div className="grid w-full items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
           {/* Left content column */}
           <div className="text-on-dark">
-            {/* Status pill */}
-            <span className="inline-flex items-center gap-2 border-l-2 border-accent py-0.5 pl-3 text-step--1 font-bold uppercase tracking-wider text-on-dark">
-              {site.yearsExperience}+ years · {site.mainTown} based · {site.accreditation}
+            {/* The hero carries one small label, the headline, one line of
+                subtext and the CTAs. Proof lives in the trust bar below it. */}
+            <span className="inline-flex items-center border-l-2 border-accent py-0.5 pl-3 text-step--1 font-bold uppercase tracking-wider text-on-dark">
+              {site.yearsExperience}+ years in {site.mainTown}. {site.accreditation}.
             </span>
 
             <h1 className="mt-6 font-display text-step-4 font-bold uppercase tracking-tight text-on-dark">
@@ -140,30 +131,6 @@ export function HomeHero() {
               >
                 Request a Quote
               </Link>
-            </div>
-
-            {/* Trust strip */}
-            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2.5 border-t border-on-dark-border pt-6 text-step--1 font-medium text-on-dark-muted">
-              <span className="inline-flex items-center gap-1.5 font-bold text-on-dark">
-                <Star className="size-3.5 fill-star text-star" />
-                Rated {site.rating} on Google
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <CheckCircle2 className="size-3.5 text-accent" />
-                {site.reviewCount}+ reviews
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Clock className="size-3.5 text-accent" />
-                {site.yearsExperience}+ years trading
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="size-3.5 text-accent" />
-                {site.accreditation}
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="size-3.5 text-accent" />
-                Fully insured
-              </span>
             </div>
           </div>
 
@@ -220,13 +187,13 @@ export function HomeHero() {
                   {...register("need")}
                   rows={3}
                   className="w-full rounded-sm border border-input bg-background px-3 py-2.5 text-step-0 text-foreground transition-colors focus:border-primary"
-                  placeholder="Describe the problem or job in your own words…"
+                  placeholder="Describe the problem or job in your own words..."
                 />
               </HeroField>
 
               <div className="flex items-center gap-2.5 rounded-sm border border-dashed border-border bg-secondary/50 px-3.5 py-3 text-step--1 text-muted-foreground">
                 <Upload className="size-4 shrink-0 text-primary" />
-                <span>Optional photo upload — helps us understand the job.</span>
+                <span>Optional photo upload - helps us understand the job.</span>
               </div>
 
               <button
@@ -234,7 +201,7 @@ export function HomeHero() {
                 disabled={isSubmitting}
                 className="w-full rounded-sm bg-accent py-3 text-step-0 font-bold uppercase tracking-wider text-accent-foreground transition-all hover:bg-accent/90 disabled:opacity-60"
               >
-                {isSubmitting ? "Sending…" : "Request a Quote"}
+                {isSubmitting ? "Sending..." : "Request a Quote"}
               </button>
 
               <p className="text-center text-step--1 text-muted-foreground">
@@ -264,7 +231,6 @@ export function HomeServices() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <Eyebrow>What we do</Eyebrow>
             <SectionHeading>Services in {site.mainTown}</SectionHeading>
           </div>
           <Link
@@ -313,7 +279,7 @@ export function HomeRecentWork() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <Eyebrow>Field proof</Eyebrow>
+            <Eyebrow>Completed jobs</Eyebrow>
             <SectionHeading>Recent work near {site.mainTown}</SectionHeading>
           </div>
           <Link
@@ -379,7 +345,7 @@ export function HomeRecentWork() {
 
 export function HomeProofStats() {
   // Four facts, each verifiable. Deliberately NOT four bordered stat cards with
-  // a big number in each — that pattern is the fingerprint of a generated page,
+  // a big number in each - that pattern is the fingerprint of a generated page,
   // and "100% work guaranteed" was a manufactured metric, not a fact.
   const facts = [
     {
@@ -454,23 +420,22 @@ export function HomeWhyChooseUs() {
   return (
     <section className="border-b border-border bg-background">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
-        <Eyebrow>Practical standards</Eyebrow>
         <SectionHeading>Why local customers choose {site.businessName}</SectionHeading>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {points.map((p, i) => (
-            <div key={p.t} className="rounded-sm border border-border bg-card p-6">
-              <div className="border-b border-border pb-4">
-                <span className="font-display text-step--1 font-bold tracking-widest text-muted-foreground">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-              </div>
-              <h3 className="mt-4 font-display text-base font-bold uppercase tracking-tight text-foreground">
+        {/* Deliberately not cards. These are six plain statements; boxing each one
+            adds a border and removes the reading rhythm. Two columns, hairlines
+            between rows, nothing else. */}
+        <dl className="mt-10 grid border-t border-border sm:grid-cols-2">
+          {points.map((p) => (
+            <div key={p.t} className="border-b border-border py-6 sm:odd:pr-10 sm:even:pl-10">
+              <dt className="font-display text-step-1 font-bold uppercase tracking-tight text-foreground">
                 {p.t}
-              </h3>
-              <p className="mt-2 text-step-0 leading-relaxed text-muted-foreground">{p.d}</p>
+              </dt>
+              <dd className="mt-2 max-w-[48ch] text-step-0 leading-relaxed text-muted-foreground">
+                {p.d}
+              </dd>
             </div>
           ))}
-        </div>
+        </dl>
       </div>
     </section>
   );
@@ -493,23 +458,22 @@ export function HomeAreasCovered() {
             <ArrowRight className="size-3.5" />
           </Link>
         </div>
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        {/* A town list is a list. Six identical cards in a 3-up grid is the
+            layout the services section already uses. */}
+        <div className="mt-10 grid border-t border-border sm:grid-cols-2">
           {towns.map((t) => (
             <Link
               key={t.slug}
               to="/areas/$town"
               params={{ town: t.slug }}
-              className="group flex items-center justify-between rounded-sm border border-border bg-card p-4 hover:border-primary/40 hover:bg-secondary/40"
+              className="group flex flex-col gap-1 border-b border-border py-5 hover:bg-secondary/60 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6 sm:odd:pr-10 sm:even:pl-10"
             >
-              <div>
-                <span className="font-display text-base font-bold uppercase tracking-tight text-foreground group-hover:text-primary">
-                  {t.name}
-                </span>
-                <span className="mt-1 block text-step--1 text-muted-foreground">
-                  {t.distance} · {t.time}
-                </span>
-              </div>
-              <MapPin className="size-5 text-primary transition-transform group-hover:scale-110" />
+              <span className="font-display text-step-1 font-bold uppercase tracking-tight text-foreground group-hover:underline">
+                {t.name}
+              </span>
+              <span className="text-step--1 text-muted-foreground sm:text-right">
+                {t.distance}, {t.time}
+              </span>
             </Link>
           ))}
         </div>
@@ -524,7 +488,6 @@ export function HomeReviews() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
         <div className="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <Eyebrow>Customer feedback</Eyebrow>
             <SectionHeading>What customers say</SectionHeading>
           </div>
           <Link
@@ -535,9 +498,23 @@ export function HomeReviews() {
             <ArrowRight className="size-3.5" />
           </Link>
         </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {reviews.slice(0, 6).map((r, i) => (
-            <ReviewCard key={`${r.name}-${r.town}-${i}`} {...r} />
+        {/* Not the card grid the services section uses, and not six repeated
+            five-star rows. The rating is already stated in the trust bar; here
+            the words are the proof, so they get the type size. */}
+        <div className="mt-10 grid border-t border-border sm:grid-cols-2">
+          {reviews.slice(0, 4).map((r, i) => (
+            <blockquote
+              key={`${r.name}-${r.town}-${i}`}
+              className="border-b border-border py-8 sm:odd:pr-10 sm:even:pl-10"
+            >
+              <p className="max-w-[46ch] text-step-1 leading-snug text-foreground">
+                &ldquo;{r.text}&rdquo;
+              </p>
+              <footer className="mt-4 text-step--1 text-muted-foreground">
+                <span className="font-bold uppercase tracking-wider text-foreground">{r.name}</span>
+                , {r.town}. {r.service}.
+              </footer>
+            </blockquote>
           ))}
         </div>
       </div>
@@ -551,7 +528,6 @@ export function HomeFaqs() {
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
         <div className="grid gap-10 lg:grid-cols-[1.3fr_0.9fr] lg:gap-14">
           <div>
-            <Eyebrow>Quick answers</Eyebrow>
             <SectionHeading>Frequently asked questions</SectionHeading>
             <div className="mt-8">
               <FaqList items={faqsGeneral.slice(0, 5)} />
@@ -593,7 +569,7 @@ export function HomeNapBlock() {
             <Eyebrow>Where we work from</Eyebrow>
             <SectionHeading as="h3">Find us, check us</SectionHeading>
             <p className="mt-4 text-step-0 text-muted-foreground">
-              Same name, address and number as our Google listing — so you can check we are who we
+              Same name, address and number as our Google listing - so you can check we are who we
               say we are before anyone comes out.
             </p>
             <div className="mt-6">

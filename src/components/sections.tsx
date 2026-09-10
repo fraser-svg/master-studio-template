@@ -13,7 +13,7 @@ import {
 } from "./site";
 import type { ReactNode } from "react";
 
-// Map placeholder — replace src with a real embed for production.
+// Map placeholder - replace src with a real embed for production.
 export function MapPlaceholder({
   label = "Service area map",
   height = "h-64",
@@ -59,7 +59,7 @@ export function Photo({
   index,
   priority = false,
 }: {
-  /** Describes the work shown. Becomes the alt text — write it for a customer. */
+  /** Describes the work shown. Becomes the alt text - write it for a customer. */
   label: string;
   /** Real photograph. Without it, a neutral placeholder block renders instead. */
   src?: string;
@@ -89,7 +89,7 @@ export function Photo({
           className="size-full object-cover"
         />
       ) : (
-        // No instructional copy in production — an unfilled slot must read as a
+        // No instructional copy in production - an unfilled slot must read as a
         // quiet surface to a customer, not as a note to the developer.
         <div
           role="img"
@@ -99,7 +99,7 @@ export function Photo({
           <ImageIcon className="size-5 text-muted-foreground/60" aria-hidden="true" />
           {import.meta.env.DEV && (
             <span className="mt-3 text-step--1 font-semibold uppercase tracking-wider text-muted-foreground">
-              {label} — add a real photo
+              {label} - add a real photo
             </span>
           )}
         </div>

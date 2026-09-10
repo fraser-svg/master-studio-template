@@ -10,7 +10,7 @@ export const Route = createFileRoute("/areas/")({
     meta: [
       {
         name: "description",
-        content: `${site.businessName} covers ${site.mainTown} and the surrounding area. See the towns we serve — only where we genuinely work.`,
+        content: `${site.businessName} covers ${site.mainTown} and the surrounding area. See the towns we serve - only where we genuinely work.`,
       },
       {
         property: "og:title",
@@ -35,7 +35,7 @@ function AreasHub() {
         <SectionHeading>Areas we cover</SectionHeading>
         <p className="mt-5 max-w-2xl text-step-0 leading-relaxed text-muted-foreground">
           Based in {site.mainTown}, we cover {site.serviceArea}. The towns below with their own page
-          have real local jobs and verified details — we only list a town here if we genuinely work
+          have real local jobs and verified details - we only list a town here if we genuinely work
           there.
         </p>
 
