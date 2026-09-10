@@ -268,7 +268,7 @@ export function FinalCTA({
   children?: ReactNode;
 }) {
   return (
-    <section className="border-t border-border bg-forest-dark text-on-dark">
+    <section className="border-t border-border bg-brand-dark text-on-dark">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
         <div className="grid items-center gap-10 lg:grid-cols-[1.3fr_1fr]">
           <div>
@@ -287,7 +287,7 @@ export function FinalCTA({
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href={site.phoneHref}
-                className="inline-flex items-center gap-1.5 rounded-sm bg-accent px-5 py-3 text-step--1 font-bold uppercase tracking-wider text-accent-foreground shadow-sm transition-all hover:bg-accent/90"
+                className="inline-flex items-center gap-1.5 rounded-sm bg-accent px-5 py-3 text-step--1 font-bold uppercase tracking-wider text-accent-foreground transition-all hover:bg-accent/90"
               >
                 <Phone className="size-4" />
                 <span>Call Now · {site.phone}</span>

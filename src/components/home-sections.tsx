@@ -28,8 +28,7 @@ import { LeadError, submitLead } from "@/lib/leads";
 
 // Hero photograph comes from a Custom Value so every deployment ships its own
 // work. FALLBACK_HERO is only used while a client has not supplied one yet.
-const FALLBACK_HERO =
-  "https://vibe.filesafe.space/1788959354602924229/assets/9b01453c-d6b4-4dd1-b524-5edde8704a02.png";
+const FALLBACK_HERO = "/hero-placeholder.svg";
 const heroSrc = !site.heroImage || site.heroImage.includes("{{") ? FALLBACK_HERO : site.heroImage;
 const heroAlt =
   !site.heroImageAlt || site.heroImageAlt.includes("{{")
@@ -130,14 +129,14 @@ export function HomeHero() {
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <a
                 href={site.phoneHref}
-                className="inline-flex items-center gap-2 rounded-sm bg-on-dark px-5 py-3 text-step--1 font-bold uppercase tracking-wider text-forest-dark shadow-sm transition-all hover:bg-on-dark-surface active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-sm bg-on-dark px-5 py-3 text-step--1 font-bold uppercase tracking-wider text-brand-dark transition-all hover:bg-on-dark-surface active:scale-[0.98]"
               >
                 <Phone className="size-4" />
                 Call {site.phone}
               </a>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-sm border border-on-dark-border bg-on-dark-surface px-5 py-3 text-step--1 font-bold uppercase tracking-wider text-on-dark backdrop-blur-sm transition-all hover:bg-on-dark-surface active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-sm border border-on-dark-border bg-on-dark-surface px-5 py-3 text-step--1 font-bold uppercase tracking-wider text-on-dark transition-all hover:bg-on-dark-surface active:scale-[0.98]"
               >
                 Request a Quote
               </Link>
@@ -169,7 +168,7 @@ export function HomeHero() {
           </div>
 
           {/* Right contact form card */}
-          <div className="rounded-md border border-border bg-card p-6 shadow-xl sm:p-8">
+          <div className="rounded-sm border-2 border-brand-dark bg-card p-6 sm:p-8">
             <p className="text-step--1 font-bold uppercase tracking-widest text-primary">
               Fast Quote
             </p>
@@ -282,7 +281,7 @@ export function HomeServices() {
               key={s.slug}
               to="/services/$service"
               params={{ service: s.slug }}
-              className="group flex flex-col justify-between rounded-sm border border-border bg-card p-5 transition-all hover:border-primary/40 hover:shadow-xs"
+              className="group flex flex-col justify-between rounded-sm border border-border bg-card p-5 transition-all hover:border-primary"
             >
               <div>
                 <Photo
@@ -406,7 +405,7 @@ export function HomeProofStats() {
   ];
 
   return (
-    <section className="border-b border-border bg-forest-dark text-on-dark">
+    <section className="border-b border-border bg-brand-dark text-on-dark">
       <div className="mx-auto max-w-6xl px-5 py-16 sm:px-6 sm:py-24">
         <h2 className="text-step--1 font-bold uppercase tracking-widest text-accent">
           Track record

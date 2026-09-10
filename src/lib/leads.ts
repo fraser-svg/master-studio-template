@@ -30,7 +30,6 @@ export async function submitLead(payload: LeadPayload): Promise<void> {
 
   if (!url) {
     if (import.meta.env.DEV) {
-      // eslint-disable-next-line no-console
       console.warn("[leads] No lead_endpoint Custom Value set — payload:", payload);
       throw new LeadError(
         "No lead endpoint configured. Set the lead_endpoint Custom Value before going live.",

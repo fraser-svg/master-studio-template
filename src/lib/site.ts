@@ -37,7 +37,6 @@ const siteRaw = {
   // Visual theme for this deployment: "" = Forest (default),
   // "industrial" = concrete + safety orange, "premium" = near-black + metallic.
   // Defined in src/styles.css; no component changes are needed to switch.
-  theme: "{{ custom_values.site_theme }}",
 
   leadEndpoint: "{{ custom_values.lead_endpoint }}",
 

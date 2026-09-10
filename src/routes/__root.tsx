@@ -85,7 +85,7 @@ const navLinks = [
 function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-background/95 backdrop-blur-md">
+    <header className="sticky top-0 z-40 w-full border-b border-border bg-background">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-6 px-4 sm:px-6 lg:h-20">
         {/* Brand */}
         <Link to="/" className="flex items-center gap-3">
@@ -161,7 +161,7 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="border-t border-border bg-forest-dark text-primary-foreground">
+    <footer className="border-t border-border bg-brand-dark text-primary-foreground">
       <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6 sm:py-16">
         <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr] md:gap-8">
           <div>
@@ -319,7 +319,7 @@ function FooterCol({ title, links }: { title: string; links: { label: string; to
 function MobileCallBar() {
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-forest-dark bg-forest p-2 lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-brand-dark bg-brand p-2 lg:hidden"
       style={{ paddingBottom: "calc(0.5rem + env(safe-area-inset-bottom))" }}
     >
       <div className="flex gap-2">
@@ -363,7 +363,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800&display=swap",
       },
       { rel: "stylesheet", href: appCss },
     ],
@@ -377,7 +377,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 function RootShell({ children }: { children: ReactNode }) {
   return (
     // Theme is a Custom Value: "" (Forest, default), "industrial" or "premium".
-    <html lang="en" data-theme={site.theme.includes("{{") ? undefined : site.theme}>
+    <html lang="en">
       <head>
         <HeadContent />
         <JsonLd

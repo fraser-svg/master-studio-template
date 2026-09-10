@@ -54,10 +54,18 @@ function ContactPage() {
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
-  const onSubmit = (data: FormValues) => {
-    console.log("Quote request:", data);
-    toast.success("Thanks — we'll be in touch shortly.");
-    reset();
+  const onSubmit = async (data: FormValues) => {
+    try {
+      await submitLead({ ...data, source: "contact-page" });
+      toast.success("Thanks — we'll be in touch shortly.");
+      reset();
+    } catch (err) {
+      toast.error(
+        err instanceof LeadError
+          ? err.message
+          : "We couldn't send that. Please call us and we'll take the details.",
+      );
+    }
   };
 
   return (

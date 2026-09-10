@@ -77,7 +77,7 @@ function ServicesHub() {
               key={s.slug}
               to="/services/$service"
               params={{ service: s.slug }}
-              className="group flex flex-col justify-between rounded-sm border border-border bg-card p-5 transition-all hover:border-primary/40 hover:shadow-xs"
+              className="group flex flex-col justify-between rounded-sm border border-border bg-card p-5 transition-all hover:border-primary"
             >
               <div>
                 <Photo
