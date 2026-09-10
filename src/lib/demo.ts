@@ -150,7 +150,23 @@ const SENTENCES: Record<string, string> = {
     "They found the actual leak in twenty minutes after two other firms had guessed at it. No mess left behind either.",
 };
 
+// Client overrides. /studio writes the real business facts scraped in phase 2 to
+// `.studio/client-values.json` at the repo root, so the dev server (and any
+// VITE_DEMO preview build) renders THAT business rather than the demo roofer.
+// The file is optional: with none present the demo content below is used.
+// Keys match the Custom Value names in site.ts; a key in brackets ("[Town]")
+// overrides that placeholder with a single fixed value.
+const CLIENT_VALUES: Record<string, string> = Object.assign(
+  {},
+  ...Object.values(
+    import.meta.glob<{ default: Record<string, string> }>("/.studio/client-values.json", {
+      eager: true,
+    }),
+  ).map((m) => m.default),
+);
+
 function demoFor(key: string): string | undefined {
+  if (key in CLIENT_VALUES) return CLIENT_VALUES[key];
   if (key in VALUES) return VALUES[key];
   return undefined;
 }
@@ -170,7 +186,8 @@ export function demoText(input: string, index = 0): string {
 
   for (const [token, options] of Object.entries(BRACKETS)) {
     if (out.includes(token)) {
-      out = out.split(token).join(options[index % options.length] ?? options[0]!);
+      const override = CLIENT_VALUES[token];
+      out = out.split(token).join(override ?? options[index % options.length] ?? options[0]!);
     }
   }
 

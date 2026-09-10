@@ -100,7 +100,11 @@ export function resolveSiteStyle(raw: string | undefined): SiteStyle {
   return (SITE_STYLES as readonly string[]).includes(value) ? (value as SiteStyle) : "steel";
 }
 
-export const siteStyle: SiteStyle = resolveSiteStyle(site.siteStyle);
+// VITE_SITE_STYLE overrides the Custom Value so one checkout can serve all three
+// styles at once - /studio phase 5b runs three dev servers to pitch them side by side.
+export const siteStyle: SiteStyle = resolveSiteStyle(
+  import.meta.env["VITE_SITE_STYLE"] || site.siteStyle,
+);
 
 export type Region = (typeof site.regions)[number];
 
